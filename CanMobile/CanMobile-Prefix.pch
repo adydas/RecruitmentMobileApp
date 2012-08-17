@@ -1,0 +1,118 @@
+//
+// Prefix header for all source files of the 'CanMobile' target in the 'CanMobile' project
+//
+
+#import <Availability.h>
+#import <SystemConfiguration/SystemConfiguration.h>
+
+
+#ifndef __IPHONE_4_0
+#warning "This project uses features only available in iOS SDK 4.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+#endif
+
+typedef enum responseTypes
+{
+    NO_INTERNET = -1,
+    REQUEST_FAILED = 0,
+    REQUEST_SUCCEEDED = 1,
+    ERROR_OCCURED = 2
+} ResponseType;
+
+
+#pragma mark - Strings
+
+#define Navigation_Bar_Title_Text @"eRecruiting from Experience.com"
+#define Login_Navigation_Bar_Title_Text @"Home / Sign in"
+#define User_Name_Key_For_User_Defaults @"username"
+#define Password_Key_For_User_Defaults @"password"
+#define No_Internet_Connection_Title @"No Internet Connection"
+#define No_Internet_Connection_Message @"Please make sure that you are connected to the internet"
+#define Request_Failiure_Title @"Failure"
+#define Request_Failiure_Message @"Failed to get data from server"
+#define Login_Request_Failiure_Message @"Invalid Username or Password"
+#define Request_Error_Title @"Error"
+#define Request_Error_Message @"An error occured while getting data from server"
+#define Alert_Button_Title @"Ok"
+
+
+
+#pragma mark - Keys For Json
+
+#define User_First_And_Last_Name @"name"
+
+#define Job_Title @"title"
+#define Job_Description @"description"
+#define Job_Employer_Name @"employer_name"
+#define Job_Apply_Url @"apply_url"
+
+#define Events_List_Key @"events"
+#define Event_Id @"id"
+#define Event_Name @"name"
+#define Event_Description @"description"
+#define Event_Location @"location"
+#define Event_Url @"event_url"
+#define Event_Start_Date @"start_date"
+
+#define Base_Url @"http://services.experience.com"
+#define Base_Url_QA @"http://services.qa-experience.com"
+#define Active_Jobs_API_Url @"/services/ws/jobs"
+#define Search_Jobs_API_Url @"/services/ws/stu/jobs/search?q=%@"
+#define Active_Favorite_Jobs_API_Url @"/services/ws/stu/favorite/jobs"
+#define Active_Events_API_Url @"services/ws/events"
+#define Login_API_Url @"/services/api/login?j_username=%@&j_password=%@"
+#define QR_Code_API_Url @"/services/ws/stu/qrcode"
+#define QR_Code_API_Url @"/services/ws/stu/qrcode"
+#define QR_Code_API_Url @"/services/ws/stu/qrcode"
+#define QR_Code_API_Url @"/services/ws/stu/qrcode"
+#define QR_Code_API_Url @"/services/ws/stu/qrcode"
+
+#pragma mark - Image Names Strings
+
+#define Logout_Button_Up @"btn_logout.png"
+#define Logout_Button_Pressed @"btn_logout_pressed.png"
+#define Detail_Disclosure_Arrow @"icon_arrow.png"
+#define Back_Button_Up @"btn_black.png"
+#define Experience_Logo @"exp_logo.png"
+
+#define Event_Detail_BG @"event_detail_bg.png"
+
+#define Display_QR_Code_Button @"display_acct_btn.png"
+
+#define Job_Detail_BG @"job_detail_bg.png"
+#define Job_Apply_Button @"edit_icon_job"
+#define Edit_Icon @"edit_icon.png"
+#define Heart_Icon_Job @"heart_icon_job.png"
+#define Heart_Icon_Negative @"heart_icon_neg.png"
+#define Heart_Icon @"heart_icon.png"
+#define Favorite_Star_Button @"ratestar.png"
+
+#define Beta_University_Logo @"beta.png"
+#define Home_Favorite_Job_Button @"favoritejob.png"
+#define Home_My_Profile_Button @"MyProfile.png"
+#define Home_Search_Jobs_button @"searchJobs.png"
+#define Home_Upcoming_Events_Button @"upcomingEvents.png"
+
+#define Events_tab_Image @"event.png"
+#define Home_tab_Image @"home_1.png"
+#define Jobs_tab_Image @"job.png"
+#define Profile_tab_Image @"profile.png"
+#define Top_Bar @"top-bar-50%.png"
+
+#define Login_Button @"btn_login.png"
+#define Text_Feild_BG @"input_bg.png"
+#define Login_Home_Icon @"icon_home.png"
+
+#pragma mark - Font names Strings
+
+#define Font_TrebuchetMS_Bold @"TrebuchetMS-Bold"
+#define Font_HelveticaNeue @"HelveticaNeue"
+
+
+//#define SuccessKey @"Success"
+//#define FailureKey @"Failure"
+//#define Errorkey @"Error"
