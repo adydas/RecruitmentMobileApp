@@ -15,6 +15,7 @@
 #import "LoginVC.h"
 #import "AppDelegate.h"
 #import "ViewController.h"
+#import "SUtils.h"
 
 @implementation HomeVC
 @synthesize username;
@@ -136,41 +137,25 @@
 
 
 
--(void)getFirstAndLastName{
+- (void)getFirstAndLastName{
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 	[[NetworkController singleton] getFirstNameAndLastNameFromServer:^(int result, NSString *userNameString){
         if (result == NO_INTERNET)
         {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:No_Internet_Connection_Title
-                                                            message:No_Internet_Connection_Message
-                                                           delegate:nil cancelButtonTitle:Alert_Button_Title otherButtonTitles:nil];
-            [alert show];
-            [alert release];
-
+            [SUtils showAlertMsg:No_Internet_Connection_Message title:No_Internet_Connection_Title];
         }
         else if (result == REQUEST_FAILED)
         {
             NSLog(@"Error");
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:Request_Failiure_Title
-                                                            message:Request_Failiure_Message
-                                                           delegate:nil cancelButtonTitle:Alert_Button_Title otherButtonTitles:nil];
-            [alert show];
-            [alert release];
-
+            [SUtils showAlertMsg:Request_Failiure_Message title:Request_Failiure_Title];
         }
         else if (result == ERROR_OCCURED)
         {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:Request_Error_Title
-                                                            message:Request_Error_Message
-                                                           delegate:nil cancelButtonTitle:Alert_Button_Title otherButtonTitles:nil];
-            [alert show];
-            [alert release];
-
+            [SUtils showAlertMsg:Request_Error_Message title:Request_Error_Title];
         }
-        else if(result == REQUEST_SUCCEEDED){
+        else if (result == REQUEST_SUCCEEDED){
             NSLog(@"success");
             self.username.text = userNameString;
-            
         }
         [self performSelectorOnMainThread:@selector(removeOverLay:) withObject:userNameString waitUntilDone:NO];
     }];	

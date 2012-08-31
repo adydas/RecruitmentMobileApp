@@ -10,6 +10,7 @@
 #import "MainScreen.h"
 #import "AppDelegate.h"
 #import "NetworkController.h"
+#import "SUtils.h"
 
 @implementation LoginVC
 @synthesize username, password;
@@ -76,7 +77,7 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
--(void) dealloc
+- (void) dealloc
 {
     [self.username release];
     [self.password release];
@@ -86,25 +87,17 @@
 
 #pragma mark - IBActions
 
--(IBAction)loginButtonPressed:(id)sender
+- (IBAction)loginButtonPressed:(id)sender
 {
     NSString *userId = self.username.text;
     NSString *pwd = self.password.text;
 
-    if(userId==nil||[userId isEqualToString:@""]){
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" 
-                                                            message:@"Username cannot be empty."
-                                                           delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [alert show];
-        [alert release];
+    if (userId == nil || [userId isEqualToString:@""]){
+        [SUtils showAlertMsg:@"Username cannot be empty." title:@"Error"];
     }
         
-    else if(pwd==nil||[pwd isEqualToString:@""]){
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" 
-                                                            message:@"Password cannot be empty."
-                                                           delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [alert show];
-        [alert release];
+    else if (pwd == nil || [pwd isEqualToString:@""]){
+        [SUtils showAlertMsg:@"Password cannot be empty." title:@"Error"];
     }
     else 
     {
@@ -119,53 +112,35 @@
 
 } 
         
--(void)performLogin{
+- (void)performLogin{
 
 	[[NetworkController singleton] loginWithServer:^(int result, NSString *usernameString ) {
-        if (result==NO_INTERNET) {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:No_Internet_Connection_Title 
-                                                            message:No_Internet_Connection_Message
-                                                           delegate:nil cancelButtonTitle:Alert_Button_Title otherButtonTitles:nil];
-            [alert show];
-            [alert release];
+        if (result == NO_INTERNET) {
+            [SUtils showAlertMsg:No_Internet_Connection_Message title:No_Internet_Connection_Title];
         }
         else if (result == REQUEST_FAILED)
         {
-            UIAlertView *alert = [[UIAlertView alloc]
-                                  initWithTitle: Request_Failiure_Title
-                                  message: Login_Request_Failiure_Message
-                                  delegate: nil
-                                  cancelButtonTitle:Alert_Button_Title
-                                  otherButtonTitles:nil];
-            [alert show];
-            [alert release];
+            [SUtils showAlertMsg:Login_Request_Failiure_Message title:Request_Failiure_Title];
         }
         else if (result == ERROR_OCCURED)
         {
-            UIAlertView *alert = [[UIAlertView alloc]
-                                  initWithTitle:Request_Error_Title
-                                  message: Request_Error_Message
-                                  delegate: nil
-                                  cancelButtonTitle:Alert_Button_Title
-                                  otherButtonTitles:nil];
-            [alert show];
-            [alert release];
+            [SUtils showAlertMsg:Request_Error_Message title:Request_Error_Title];
         }
-        else{
+        else
+        {
             [[NSUserDefaults standardUserDefaults] setObject:usernameString forKey:User_First_And_Last_Name];
             MainScreen *mainScreen = [[MainScreen alloc] initWithNibName:@"MainScreen" bundle:nil];
             AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
             delegate.window.rootViewController = mainScreen;
 
             [self performSelectorOnMainThread:@selector(removeOverLay:) withObject:usernameString waitUntilDone:NO];
-
         }
 
     }];
 	    
 }
 
--(void)removeOverLay:(NSString*) results{    
+- (void)removeOverLay:(NSString*) results{    
     
     [activityView stopAnimating];
 	[darkView removeFromSuperview];
@@ -176,15 +151,13 @@
     
 }
 
-        
--(IBAction)refreshButtonPressed:(id)sender
+- (IBAction)refreshButtonPressed:(id)sender
 {
     NSLog(@"Refresh button pressed");
 }
 
 
-
--(BOOL) textFieldShouldReturn:(UITextField *)textField{
+- (BOOL) textFieldShouldReturn:(UITextField *)textField{
 	
     [textField resignFirstResponder];
     return YES;

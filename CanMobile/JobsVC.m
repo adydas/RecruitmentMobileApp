@@ -11,6 +11,7 @@
 #import "NetworkController.h"
 #import "JobBO.h"
 #import "JobApplyVC.h"
+#import "SUtils.h"
 
 @implementation JobsVC
 @synthesize keywordSearch,tableview, jobs;
@@ -141,12 +142,7 @@
         [cell.contentView addSubview:detailDisclosureButton];
     }
     
-
-
-
-	
     return cell;
-    
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -160,7 +156,7 @@
 
 #pragma mark - IBActions
 
--(IBAction)goButtonPressed:(id)sender
+- (IBAction)goButtonPressed:(id)sender
 {
     NSString *searchKeyword = keywordSearch.text;
     NSLog(@"%@", searchKeyword);
@@ -179,7 +175,7 @@
 }
 
 
--(IBAction) detailDiscolosureIndicatorSelected: (id) sender
+- (IBAction) detailDiscolosureIndicatorSelected: (id) sender
 {
 //    [[NetworkController singleton] getJobDetailsFromServer:^(bool success, NSMutableArray *jobs1){
 //        if(success){
@@ -200,7 +196,7 @@
 
 }
 
--(IBAction) applyForJobButtonSelected: (id) sender
+- (IBAction) applyForJobButtonSelected: (id) sender
 {
     JobApplyVC *jobApplyVC = [[JobApplyVC alloc] initWithNibName:@"JobApplyVC" bundle:nil];
     JobBO *jobBO = [self.jobs objectAtIndex:[sender tag]];
@@ -211,7 +207,7 @@
 }
 
 
--(IBAction) addToFavoritesButtonpressed: (id) sender
+- (IBAction) addToFavoritesButtonpressed: (id) sender
 {
 
 }
@@ -221,7 +217,7 @@
 #pragma mark - TextField delegate method
 
 
--(BOOL) textFieldShouldReturn:(UITextField *)textField{
+- (BOOL) textFieldShouldReturn:(UITextField *)textField{
 	
     [textField resignFirstResponder];
     return YES;
@@ -229,38 +225,23 @@
 
 #pragma mark - Logic
 
--(void) getJobsList
+- (void) getJobsList
 {
     [self.view addSubview:darkView];
     [activityView startAnimating];
     [[NetworkController singleton] getJobsFromServer:^(int result, NSMutableArray *jobs1){
         if (result == NO_INTERNET)
         {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:No_Internet_Connection_Title
-                                                            message:No_Internet_Connection_Message
-                                                           delegate:nil cancelButtonTitle:Alert_Button_Title otherButtonTitles:nil];
-            [alert show];
-            [alert release];
-            
+            [SUtils showAlertMsg:No_Internet_Connection_Message title:No_Internet_Connection_Title];
         }
         else if (result == REQUEST_FAILED)
         {
             NSLog(@"Error");
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:Request_Failiure_Title
-                                                            message:Request_Failiure_Message
-                                                           delegate:nil cancelButtonTitle:Alert_Button_Title otherButtonTitles:nil];
-            [alert show];
-            [alert release];
-            
+            [SUtils showAlertMsg:Request_Failiure_Message title:Request_Failiure_Title];
         }
         else if (result == ERROR_OCCURED)
         {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:Request_Error_Title
-                                                            message:Request_Error_Message
-                                                           delegate:nil cancelButtonTitle:Alert_Button_Title otherButtonTitles:nil];
-            [alert show];
-            [alert release];
-            
+            [SUtils showAlertMsg:Request_Error_Message title:Request_Error_Title];
         }        
         else if(result == REQUEST_SUCCEEDED){
             self.jobs  = jobs1;
@@ -271,7 +252,7 @@
     }];
 }
 
--(void)removeOverLay:(NSArray*) results{    
+- (void)removeOverLay:(NSArray*) results{    
     
     [activityView stopAnimating];
 	[darkView removeFromSuperview];
