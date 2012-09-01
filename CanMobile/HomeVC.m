@@ -61,12 +61,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     [self.view addSubview:darkView];
     [activityView startAnimating];
     [self getFirstAndLastName];
-
-    
-    
 }
 
 - (void)viewDidUnload
@@ -93,7 +91,7 @@
 {
     JobsVC *jobsVC = [[JobsVC alloc] initWithNibName:@"JobsVC" bundle:nil];
     [self.navigationController pushViewController:jobsVC animated:YES];
-    //[jobsVC release];
+    [jobsVC release];
     NSLog(@"searchJobs button pressed");
 }
 

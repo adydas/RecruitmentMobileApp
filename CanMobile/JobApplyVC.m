@@ -64,9 +64,8 @@
     self.webView.delegate = nil;
 }
 
--(void) loadWebView
+- (void) loadWebView
 {
-
     self.webView.scalesPageToFit = YES;
     NSURL *url = [NSURL URLWithString:self.applyUrl];
 	NSURLRequest* request = [NSURLRequest requestWithURL:url];
@@ -74,13 +73,13 @@
 
 }
 
--(void)webViewDidStartLoad:(UIWebView *) portal {
+- (void)webViewDidStartLoad:(UIWebView *) portal {
     [self.view addSubview:darkView];
     [activityView startAnimating];
 }
 
 
--(void)webViewDidFinishLoad:(UIWebView *) portal{
+- (void)webViewDidFinishLoad:(UIWebView *) portal{
     [activityView stopAnimating];
 	[darkView removeFromSuperview];
 

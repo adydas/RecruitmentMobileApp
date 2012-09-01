@@ -19,20 +19,6 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         
-        
-//        UILabel *topLabel = [[UILabel alloc] initWithFrame:CGRectMake(30, 0, 250, 30)];
-//        topLabel.textColor = [UIColor whiteColor];
-//        topLabel.backgroundColor = [UIColor clearColor];
-//        topLabel.font = [UIFont fontWithName:@"TrebuchetMS-Bold" size:17.0f];
-//        topLabel.text = @"eRecruiting from Experience.com";
-//        [self.navigationController.navigationBar addSubview:topLabel];
-        
-//        UIBarButtonItem *refreshButton = [[UIBarButtonItem alloc] initWithCustomView:[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"icon_refresh.png"]]];
-//        
-//        [refreshButton setBackgroundImage:[UIImage imageNamed:@"icon_refresh.png"] 
-//                                 forState:UIControlStateNormal
-//                               barMetrics:UIBarMetricsDefault];
-//        self.navigationItem.rightBarButtonItem = refreshButton;
     }
     return self;
 }

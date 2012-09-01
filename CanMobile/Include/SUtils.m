@@ -7,8 +7,6 @@
 //
 
 #import "SUtils.h"
-#import <AddressBook/AddressBook.h>
-
 
 @implementation SUtils
 
@@ -178,7 +176,7 @@
 
 + (void) showAlertMsg: (NSString *) strMsg {
     UIAlertView *alert = [[UIAlertView alloc]
-						  initWithTitle: @"Züm"
+						  initWithTitle: @"Can Mobile"
 						  message: strMsg
 						  delegate: nil
 						  cancelButtonTitle:Alert_Button_Title
@@ -209,78 +207,6 @@
     alert.tag = 1;
 	[alert show];
     [alert release];
-}
-
-
-#pragma mark - Phone Contact Function
-
-+ (NSString *) GetPhoneContact {
-    
-    NSMutableString *strPhoneContacts = [[[NSMutableString alloc] init] autorelease];
-    ABAddressBookRef addressBook = ABAddressBookCreate(); // create address book reference object
-    NSArray *abContactArray = (NSArray *)ABAddressBookCopyArrayOfAllPeople(addressBook); // get address book contact array
-    
-    NSInteger totalContacts =[abContactArray count];
-
-    
-    for(NSUInteger loop= 0 ; loop < totalContacts; loop++)
-    {
-        ABRecordRef record = (ABRecordRef)[abContactArray objectAtIndex:loop]; // get address book record
-        
-        if(ABRecordGetRecordType(record) ==  kABPersonType) // this check execute if it is person group
-        {
-            NSString *strPhone;
-            
-            if (ABMultiValueGetCount(ABRecordCopyValue(record, kABPersonPhoneProperty)) > 0 || ABMultiValueGetCount(ABRecordCopyValue(record, kABPersonEmailProperty)) > 0)
-            {
-                if (ABMultiValueGetCount(ABRecordCopyValue(record, kABPersonPhoneProperty)) > 1)
-                {
-                    
-                    CFTypeRef phoneNumberProperty = ABRecordCopyValue(record,kABPersonPhoneProperty);
-                    NSArray *phArray = (NSArray *)ABMultiValueCopyArrayOfAllValues(phoneNumberProperty);
-                    
-                    strPhone = [phArray componentsJoinedByString:@","];
-                    
-                }
-                else if (ABMultiValueGetCount(ABRecordCopyValue(record, kABPersonPhoneProperty)) > 0)
-                {
-                    strPhone = (NSString *)ABMultiValueCopyValueAtIndex(ABRecordCopyValue(record, kABPersonPhoneProperty),0);
-                }
-                else {
-                    strPhone = @"";
-                }
-                
-                NSString *strEmail;
-                if (ABMultiValueGetCount(ABRecordCopyValue(record, kABPersonEmailProperty)) > 0) {
-                    strEmail = (NSString *)ABMultiValueCopyValueAtIndex(ABRecordCopyValue(record, kABPersonEmailProperty),0);
-                    
-                } else {
-                    strEmail = @"";
-                }
-                
-                //          NSLog(@"Person Phone Number is : %@", strPhone);
-                //          NSLog(@"Person Email Address is : %@", strEmail);
-                
-                strPhone = [strPhone stringByReplacingOccurrencesOfString:@"(" withString:@""];
-                strPhone = [strPhone stringByReplacingOccurrencesOfString:@")" withString:@""];
-                strPhone = [strPhone stringByReplacingOccurrencesOfString:@"-" withString:@""];
-                strPhone = [strPhone stringByReplacingOccurrencesOfString:@" " withString:@""];
-                strPhone = [strPhone stringByReplacingOccurrencesOfString:@"+" withString:@""];
-                
-                //           NSLog(@"phone num : %@", strPhone);
-                
-                if ([strPhoneContacts isEqualToString:@""]) {
-                    [strPhoneContacts appendString: strPhone];
-                } else {
-                    [strPhoneContacts appendFormat: @",%@", strPhone];
-                }
-            }
-            
-        }
-    }
-    
-    NSLog(@"contacts = %@", strPhoneContacts);
-    return (NSString *)strPhoneContacts;
 }
 
 #pragma mark - URL encode functions

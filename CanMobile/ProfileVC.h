@@ -15,12 +15,7 @@
 }
 
 @property (nonatomic, retain) IBOutlet UIButton *accountInfoButton;
-//@property (nonatomic, retain) IBOutlet UILabel *username;
-//@property (nonatomic, retain) IBOutlet UILabel *studentId;
-//@property (nonatomic, retain) IBOutlet UILabel *firstName;
-//@property (nonatomic, retain) IBOutlet UILabel *lastName;
-//@property (nonatomic, retain) IBOutlet UILabel *accountCreationDate;
 
--(IBAction)accountInfoButtonPressed:(id)sender;
-//-(IBAction)downArrowButtonPressed:(id)sender;
+- (IBAction)accountInfoButtonPressed:(id)sender;
+
 @end

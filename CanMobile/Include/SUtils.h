@@ -29,9 +29,8 @@
 + (void) showAlertMsg: (NSString *) strMsg  title:(NSString *) title;
 + (void) showAlertConfirm: (UIViewController *) delegae Msg:(NSString *) strMsg;
 
-+ (NSString *) GetPhoneContact;
-
 + (NSString*) encodeToPercentEscapeString : (NSString *)string;
 + (NSString*) decodeFromPercentEscapeString : (NSString *)string;
+
 @end
 

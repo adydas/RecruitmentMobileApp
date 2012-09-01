@@ -18,9 +18,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        UITabBarItem * tabtitle = [[UITabBarItem alloc] initWithTitle: @"Events"
-                                                                image: [UIImage imageNamed:Events_tab_Image] //or your icon 
-                                                                  tag: 0];
+        UITabBarItem * tabtitle = [[UITabBarItem alloc] initWithTitle: @"Events" image: [UIImage imageNamed:Events_tab_Image] tag: 0];
         
         [self setTabBarItem: tabtitle];
         [tabtitle release];

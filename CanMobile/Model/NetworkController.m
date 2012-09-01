@@ -32,14 +32,18 @@ NetworkController *singleton;
 
 /***Method Description***/
 //It hits the active jobs url, call a method with the response as parameter that returns jobs Array, it then sends a call back with a bool and the array. Incase of success bool is true and in case of failiure bool is false and array is nil 
--(void)getJobsFromServer:(ConditionCallbackWithArg)callback
+- (void)getJobsFromServer:(ConditionCallbackWithArg)callback
 {
     __block NSMutableURLRequest *request;
     __block AFJSONRequestOperation *operation;
+    
     [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
     [[AFNetworkActivityIndicatorManager sharedManager] incrementActivityCount];
+    
     NSURL *url = [NSURL URLWithString:Base_Url];
+    
     AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
+    
     NSString *username = [[NSUserDefaults standardUserDefaults]
                           stringForKey:User_Name_Key_For_User_Defaults];
     NSString *password = [[NSUserDefaults standardUserDefaults]
@@ -52,7 +56,6 @@ NetworkController *singleton;
         switch (status) {
             case AFNetworkReachabilityStatusNotReachable:
                 callback(NO_INTERNET, nil);
-               
                 break;
             default:
                 request = [httpClient requestWithMethod:@"GET" path:Active_Jobs_API_Url parameters:nil];
@@ -264,7 +267,7 @@ NetworkController *singleton;
 
 /***Method Description***/
 //It hits the login url, extracts the user name string from response, it then sends a call back with a bool and the string. In case of success bool is true and in case of failiure bool is false and string is nil 
--(void)loginWithServer:(ConditionCallbackWithArg)callback
+-(void)loginWithServer : (ConditionCallbackWithArg) callback
 
 {
     __block NSMutableURLRequest *request;
@@ -275,19 +278,20 @@ NetworkController *singleton;
 
     NSURL *url = [NSURL URLWithString:Base_Url];
     AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
+    
     NSString *username = [[NSUserDefaults standardUserDefaults]
                             stringForKey:User_Name_Key_For_User_Defaults];
     NSString *password = [[NSUserDefaults standardUserDefaults]
                           stringForKey:Password_Key_For_User_Defaults];    
     httpClient.parameterEncoding = AFJSONParameterEncoding;
 
-    NSString *requestPath = [NSString stringWithFormat:Login_API_Url,username,password];
+    NSString *requestPath = [NSString stringWithFormat:Login_API_Url, username, password];
+    
     [httpClient setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
         
         switch (status) {
             case AFNetworkReachabilityStatusNotReachable:
                 callback(NO_INTERNET, nil);
-                
                 break;
             default:
                 request = [httpClient requestWithMethod:@"POST" path:requestPath parameters:nil];
@@ -295,12 +299,17 @@ NetworkController *singleton;
                 [request setHTTPBody:nil];
                 
                 operation = [httpClient HTTPRequestOperationWithRequest:request 
-                    success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                    success:^(AFHTTPRequestOperation *operation, id responseObject)
+                    {
                         NSString *strResp = [[NSString alloc] initWithData:responseObject encoding:NSStringEncodingConversionAllowLossy];
-                        [[AFNetworkActivityIndicatorManager sharedManager] decrementActivityCount]; 
-                        callback (REQUEST_SUCCEEDED, strResp);                                                                            } 
-                        failure:^(AFHTTPRequestOperation *operation, NSError *error){
-                                                                    //NSLog(@"Error: %@", error);
+                        
+                        [[AFNetworkActivityIndicatorManager sharedManager] decrementActivityCount];
+                        
+                        callback (REQUEST_SUCCEEDED, strResp);   
+                    }
+                             
+                    failure:^(AFHTTPRequestOperation *operation, NSError *error)
+                    {
                         [[AFNetworkActivityIndicatorManager sharedManager] decrementActivityCount];
                             if (operation.response.statusCode == 404 || operation.response.statusCode == 500) {
                                 callback (ERROR_OCCURED, nil);
@@ -316,9 +325,6 @@ NetworkController *singleton;
                break;
         }
     }];
-
-    
-    
 }
 
 /***Method Description***/

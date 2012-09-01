@@ -16,9 +16,10 @@
 }
 
 @property (nonatomic, retain) IBOutlet UILabel *username;
--(IBAction)searchJobsButtonpressed:(id)sender;
--(IBAction)favoriteJobsButtonpressed:(id)sender;
--(IBAction)upcomingEventsButtonpressed:(id)sender;
--(IBAction)myProfileButtonpressed:(id)sender;
--(void)getFirstAndLastName;
+
+- (IBAction) searchJobsButtonpressed:(id)sender;
+- (IBAction) favoriteJobsButtonpressed:(id)sender;
+- (IBAction)upcomingEventsButtonpressed:(id)sender;
+- (IBAction)myProfileButtonpressed:(id)sender;
+- (void)getFirstAndLastName;
 @end

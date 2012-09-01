@@ -38,9 +38,6 @@
         [view addSubview:homeImageView];
         [view addSubview:label];
         self.navigationItem.titleView = view;
-
-
-
     }
     return self;
 }
@@ -59,8 +56,6 @@
 {
     [super viewDidLoad];
     self.navigationItem.hidesBackButton = YES;
-    
-
 }
 
 - (void)viewDidUnload
@@ -68,7 +63,6 @@
     [super viewDidUnload];
     self.username = nil;
     self.password = nil;
-
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -87,7 +81,7 @@
 
 #pragma mark - IBActions
 
-- (IBAction)loginButtonPressed:(id)sender
+- (IBAction)loginButtonPressed : (id)sender
 {
     NSString *userId = self.username.text;
     NSString *pwd = self.password.text;
@@ -95,7 +89,6 @@
     if (userId == nil || [userId isEqualToString:@""]){
         [SUtils showAlertMsg:@"Username cannot be empty." title:@"Error"];
     }
-        
     else if (pwd == nil || [pwd isEqualToString:@""]){
         [SUtils showAlertMsg:@"Password cannot be empty." title:@"Error"];
     }
@@ -108,11 +101,11 @@
             [self.view addSubview:darkView];
             [activityView startAnimating];
             [self performSelectorInBackground:@selector(performLogin) withObject:nil];
-        }
+    }
 
 } 
         
-- (void)performLogin{
+- (void) performLogin {
 
 	[[NetworkController singleton] loginWithServer:^(int result, NSString *usernameString ) {
         if (result == NO_INTERNET) {
@@ -133,6 +126,7 @@
             AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
             delegate.window.rootViewController = mainScreen;
 
+            
             [self performSelectorOnMainThread:@selector(removeOverLay:) withObject:usernameString waitUntilDone:NO];
         }
 
@@ -146,9 +140,6 @@
 	[darkView removeFromSuperview];
 
     [self.navigationController popViewControllerAnimated:YES];
-
-    
-    
 }
 
 - (IBAction)refreshButtonPressed:(id)sender
@@ -157,8 +148,7 @@
 }
 
 
-- (BOOL) textFieldShouldReturn:(UITextField *)textField{
-	
+- (BOOL) textFieldShouldReturn : (UITextField *) textField {
     [textField resignFirstResponder];
     return YES;
 }

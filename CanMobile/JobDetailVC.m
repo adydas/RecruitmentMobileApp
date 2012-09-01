@@ -45,8 +45,8 @@
     
     
     jobNameLabel.text = jobBO.jobTitle;
-    jobNameDetailedLabel.text = jobBO.jobTitle;
-    jobDetailTextView.text = jobBO.jobTitle;
+    jobNameDetailedLabel.text = jobBO.jobLocation;
+    jobDetailTextView.text = jobBO.jobDescription;
 }
 
 - (void)viewDidUnload
@@ -75,7 +75,7 @@
 
 #pragma mark - IBActions
 
--(IBAction)jobApplyButtonPressed:(id)sender
+- (IBAction)jobApplyButtonPressed:(id)sender
 {
     JobApplyVC *jobApplyVC = [[JobApplyVC alloc] initWithNibName:@"JobApplyVC" bundle:nil];
 
@@ -85,7 +85,7 @@
     [jobApplyVC release];
 
 }
--(IBAction)favoriteButtonPressed:(id)sender
+- (IBAction)favoriteButtonPressed:(id)sender
 {
 
 }

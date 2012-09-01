@@ -14,6 +14,7 @@
 #import "SUtils.h"
 
 @implementation JobsVC
+@synthesize m_JobListCell;
 @synthesize keywordSearch,tableview, jobs;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -46,10 +47,7 @@
 {
     [super viewDidLoad];
         
-//        [[NetworkController singleton] getJobsFromServer:nil];
-    
     [self getJobsList];
-        
         
     UILabel *topLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, 300, 30)];
     topLabel.textColor = [UIColor whiteColor];
@@ -63,6 +61,7 @@
 
 - (void)viewDidUnload
 {
+    [self setM_JobListCell:nil];
     [super viewDidUnload];
     self.keywordSearch = nil;
     self.tableview     = nil;
@@ -80,6 +79,7 @@
     [self.keywordSearch release];
     [self.tableview release];
     [self.jobs release];
+    [m_JobListCell release];
     [super dealloc];
 }
 
@@ -94,59 +94,29 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView
 		 cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	        JobBO *jobBo =nil;
-	static NSString *SimpleTableIdentifier = @"TableIdentifier";
-	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:SimpleTableIdentifier];
-    if (cell == nil)
-    {
-		cell = [[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault
-									  reuseIdentifier:SimpleTableIdentifier] autorelease];    
-
-        jobBo = [self.jobs objectAtIndex:indexPath.row];
-        titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 8, 200, 20)];
-        titleLabel.font = [UIFont fontWithName:Font_TrebuchetMS_Bold size:12.0f];
-        titleLabel.text = jobBo.jobTitle;
-        titleLabel.backgroundColor = [UIColor clearColor];
-        [cell.contentView addSubview:titleLabel];
-        [titleLabel release];
-        
-        
-        subTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 20, 300, 30)];
-        subTitleLabel.font = [UIFont fontWithName:Font_HelveticaNeue size:10.0f];
-        subTitleLabel.text = jobBo.employerName;
-        subTitleLabel.backgroundColor = [UIColor clearColor];
-        subTitleLabel.textColor = [UIColor grayColor];
-        [cell.contentView addSubview:subTitleLabel];
-        [subTitleLabel release];
-        
-        editButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        editButton.frame =  CGRectMake(220, 20, 20, 20);
-        [editButton setBackgroundImage:[UIImage imageNamed:Job_Apply_Button] forState:UIControlStateNormal];
-        [editButton addTarget:self action:@selector(applyForJobButtonSelected:) forControlEvents:UIControlEventTouchUpInside];
-        [cell.contentView addSubview:editButton];
-        
-        favoriteButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        favoriteButton.frame =  CGRectMake(245, 20, 20, 20);
-        [favoriteButton setBackgroundImage:[UIImage imageNamed:Favorite_Star_Button] forState:UIControlStateNormal];
-        [favoriteButton addTarget:self action:@selector(addToFavoritesButtonpressed:) forControlEvents:UIControlEventTouchUpInside];
-        favoriteButton.tag = indexPath.row;
-        [cell.contentView addSubview:favoriteButton];
-        
-        
-        detailDisclosureButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        detailDisclosureButton.frame =  CGRectMake(275, 20, 15, 15);
-        [detailDisclosureButton setBackgroundImage:[UIImage imageNamed:Detail_Disclosure_Arrow] forState:UIControlStateNormal];
-        [detailDisclosureButton addTarget:self action:@selector(detailDiscolosureIndicatorSelected:) forControlEvents:UIControlEventTouchUpInside];
-        detailDisclosureButton.tag = indexPath.row;
-        
-        [cell.contentView addSubview:detailDisclosureButton];
-    }
+    JobBO *jobBo = nil;
+    jobBo = [self.jobs objectAtIndex:indexPath.row];
     
-    return cell;
+    [[NSBundle mainBundle] loadNibNamed:@"JobListCell" owner:self options:nil];
+    
+    m_JobListCell.m_labelTitle.text = jobBo.jobTitle;
+    m_JobListCell.m_labelDescription.text = jobBo.employerName;
+    m_JobListCell.m_btnEdit.tag = indexPath.row;
+    m_JobListCell.m_btnFavorite.tag = indexPath.row;
+    m_JobListCell.m_btnDetail.tag = indexPath.row;
+    
+    return m_JobListCell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    	[tableView deselectRowAtIndexPath:indexPath animated:NO];
+    //[tableView deselectRowAtIndexPath:indexPath animated:NO];
+    JobDetailVC *jobDetailVC = [[JobDetailVC alloc] initWithNibName:@"JobDetailVC" bundle:nil];
+    jobDetailVC.jobBO = [self.jobs objectAtIndex:indexPath.row];
+    NSLog(@"tag %d", indexPath.row);
+    [self.navigationController pushViewController:jobDetailVC animated:YES];
+    
+    [jobDetailVC release];
+
 }
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -160,6 +130,7 @@
 {
     NSString *searchKeyword = keywordSearch.text;
     NSLog(@"%@", searchKeyword);
+    
     if (searchKeyword != nil || searchKeyword != (id)[NSNull null]) {
         [[NetworkController singleton] getSearchedJobsFromServer:searchKeyword andCallBack:^(int result, NSMutableArray *jobs1){
             if(result == REQUEST_SUCCEEDED){
@@ -177,16 +148,6 @@
 
 - (IBAction) detailDiscolosureIndicatorSelected: (id) sender
 {
-//    [[NetworkController singleton] getJobDetailsFromServer:^(bool success, NSMutableArray *jobs1){
-//        if(success){
-//            self.jobs  = jobs1;
-//            [self.tableview reloadData];
-//        }else{
-//            NSLog(@"Error");
-//        }
-//    }];
-
-    
     JobDetailVC *jobDetailVC = [[JobDetailVC alloc] initWithNibName:@"JobDetailVC" bundle:nil];
         jobDetailVC.jobBO = [self.jobs objectAtIndex:[sender tag]];
     NSLog(@"tag %d",[ sender tag]);
@@ -209,14 +170,11 @@
 
 - (IBAction) addToFavoritesButtonpressed: (id) sender
 {
-
+    
 }
 
 
-
 #pragma mark - TextField delegate method
-
-
 - (BOOL) textFieldShouldReturn:(UITextField *)textField{
 	
     [textField resignFirstResponder];
@@ -229,7 +187,8 @@
 {
     [self.view addSubview:darkView];
     [activityView startAnimating];
-    [[NetworkController singleton] getJobsFromServer:^(int result, NSMutableArray *jobs1){
+    [[NetworkController singleton] getJobsFromServer:^(int result, NSMutableArray *jobs1)
+    {
         if (result == NO_INTERNET)
         {
             [SUtils showAlertMsg:No_Internet_Connection_Message title:No_Internet_Connection_Title];

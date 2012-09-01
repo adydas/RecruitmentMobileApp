@@ -89,6 +89,8 @@
 		4F9C618415F0BBFB00EB6CA4 /* JobBO.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F9C617615F0BBFB00EB6CA4 /* JobBO.m */; };
 		4F9C618515F0BBFB00EB6CA4 /* ProfileBO.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F9C617815F0BBFB00EB6CA4 /* ProfileBO.m */; };
 		4F9C618815F0BC1D00EB6CA4 /* NetworkController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F9C618715F0BC1D00EB6CA4 /* NetworkController.m */; };
+		4F9C619E15F1C38700EB6CA4 /* JobListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F9C619D15F1C38700EB6CA4 /* JobListCell.m */; };
+		4F9C61A015F1C39700EB6CA4 /* JobListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F9C619F15F1C39700EB6CA4 /* JobListCell.xib */; };
 		4FF1DB1715CFAA8F009D2CF9 /* beta@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FF1DB1615CFAA8F009D2CF9 /* beta@2x.png */; };
 		4FFC110A15C262700036DC2B /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FFC110915C262700036DC2B /* libz.1.2.5.dylib */; };
 /* End PBXBuildFile section */
@@ -207,6 +209,9 @@
 		4F9C617815F0BBFB00EB6CA4 /* ProfileBO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileBO.m; sourceTree = "<group>"; };
 		4F9C618615F0BC1D00EB6CA4 /* NetworkController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkController.h; sourceTree = "<group>"; };
 		4F9C618715F0BC1D00EB6CA4 /* NetworkController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkController.m; sourceTree = "<group>"; };
+		4F9C619C15F1C38700EB6CA4 /* JobListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobListCell.h; sourceTree = "<group>"; };
+		4F9C619D15F1C38700EB6CA4 /* JobListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobListCell.m; sourceTree = "<group>"; };
+		4F9C619F15F1C39700EB6CA4 /* JobListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JobListCell.xib; sourceTree = "<group>"; };
 		4FF1DB1615CFAA8F009D2CF9 /* beta@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "beta@2x.png"; sourceTree = "<group>"; };
 		4FFC110915C262700036DC2B /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -452,6 +457,7 @@
 		4F9C615415F09EFD00EB6CA4 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				4F9C619A15F1C31A00EB6CA4 /* CustomViews */,
 				4F9C615A15F0BBFB00EB6CA4 /* Model */,
 				4F9C615615F0BBED00EB6CA4 /* Include */,
 				4F9C615515F09F0300EB6CA4 /* ViewControllers */,
@@ -541,6 +547,16 @@
 				4F9C617815F0BBFB00EB6CA4 /* ProfileBO.m */,
 			);
 			path = BO;
+			sourceTree = "<group>";
+		};
+		4F9C619A15F1C31A00EB6CA4 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				4F9C619C15F1C38700EB6CA4 /* JobListCell.h */,
+				4F9C619D15F1C38700EB6CA4 /* JobListCell.m */,
+				4F9C619F15F1C39700EB6CA4 /* JobListCell.xib */,
+			);
+			name = CustomViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -641,6 +657,7 @@
 				4FF1DB1715CFAA8F009D2CF9 /* beta@2x.png in Resources */,
 				4F8699BC15D0E3FD0096460B /* li_bg.png in Resources */,
 				4F9C611D15EFA54400EB6CA4 /* EventsVC.xib in Resources */,
+				4F9C61A015F1C39700EB6CA4 /* JobListCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -679,6 +696,7 @@
 				4F9C618415F0BBFB00EB6CA4 /* JobBO.m in Sources */,
 				4F9C618515F0BBFB00EB6CA4 /* ProfileBO.m in Sources */,
 				4F9C618815F0BC1D00EB6CA4 /* NetworkController.m in Sources */,
+				4F9C619E15F1C38700EB6CA4 /* JobListCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
