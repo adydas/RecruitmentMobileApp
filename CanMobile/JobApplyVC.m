@@ -10,7 +10,7 @@
 #import "AppDelegate.h"
 
 @implementation JobApplyVC
-@synthesize webView, applyUrl;
+@synthesize applyUrl;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -41,7 +41,7 @@
     topLabel.font = [UIFont fontWithName:Font_TrebuchetMS_Bold size:15.0f];
     topLabel.text = Navigation_Bar_Title_Text;
     self.navigationItem.titleView = topLabel ;
-    [self loadWebView];
+
 }
 
 - (void)viewDidUnload
@@ -60,29 +60,9 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    [self.webView stopLoading];
-    self.webView.delegate = nil;
-}
-
-- (void) loadWebView
-{
-    self.webView.scalesPageToFit = YES;
-    NSURL *url = [NSURL URLWithString:self.applyUrl];
-	NSURLRequest* request = [NSURLRequest requestWithURL:url];
-    [self.webView loadRequest:request];
 
 }
 
-- (void)webViewDidStartLoad:(UIWebView *) portal {
-    [self.view addSubview:darkView];
-    [activityView startAnimating];
-}
 
-
-- (void)webViewDidFinishLoad:(UIWebView *) portal{
-    [activityView stopAnimating];
-	[darkView removeFromSuperview];
-
-}
 
 @end

@@ -8,13 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface JobApplyVC : UIViewController <UIWebViewDelegate>
+@interface JobApplyVC : UIViewController
 {
     IBOutlet UIView *darkView;
     IBOutlet UIActivityIndicatorView *activityView;
 }
 
-@property (nonatomic, retain) IBOutlet UIWebView *webView;
+
 @property (nonatomic, retain) NSString *applyUrl;
--(void) loadWebView; 
+
 @end

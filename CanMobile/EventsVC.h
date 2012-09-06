@@ -14,12 +14,11 @@
 {
     UILabel *titleLabel;
     UILabel *subTitleLabel;
-//    UIButton *editButton;
-//    UIButton *favoriteButton;
     UIButton *detailDisclosureButton;
      UIView *darkView;
-    IBOutlet UIActivityIndicatorView *activityView;
     JobsVC *jobsVCObj;
+    
+    IBOutlet UIActivityIndicatorView *activityView;
 }
 
 
@@ -27,11 +26,10 @@
 @property (nonatomic, retain) IBOutlet UITableView *tableview;
 @property (nonatomic, retain)   NSMutableArray *events;
 
+- (void) getEventsList;
+- (void) initDarkView;
 
--(IBAction) detailDiscolosureIndicatorSelected: (id) sender;
-//-(IBAction)prevousButtonPressed:(id)sender;
-//-(IBAction)nextButtonPressed:(id)sender;
--(void) getEventsList;
--(void)removeDarkView;
--(void)initDarkView;
+- (IBAction) detailDiscolosureIndicatorSelected: (id) sender;
+
+
 @end

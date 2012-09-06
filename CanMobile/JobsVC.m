@@ -11,6 +11,7 @@
 #import "NetworkController.h"
 #import "JobBO.h"
 #import "JobApplyVC.h"
+#import "FavoriteJobsVC.h"
 #import "SUtils.h"
 
 @implementation JobsVC
@@ -109,7 +110,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    //[tableView deselectRowAtIndexPath:indexPath animated:NO];
+    
     JobDetailVC *jobDetailVC = [[JobDetailVC alloc] initWithNibName:@"JobDetailVC" bundle:nil];
     jobDetailVC.jobBO = [self.jobs objectAtIndex:indexPath.row];
     NSLog(@"tag %d", indexPath.row);
@@ -125,7 +126,6 @@
 
 
 #pragma mark - IBActions
-
 - (IBAction)goButtonPressed:(id)sender
 {
     NSString *searchKeyword = keywordSearch.text;
@@ -144,7 +144,6 @@
     }
     
 }
-
 
 - (IBAction) detailDiscolosureIndicatorSelected: (id) sender
 {
@@ -170,7 +169,12 @@
 
 - (IBAction) addToFavoritesButtonpressed: (id) sender
 {
+    /*
+    FavoriteJobsVC *favoriteJobsVC = [[FavoriteJobsVC alloc] init];
+    [self.navigationController pushViewController:favoriteJobsVC animated:YES];
     
+    [favoriteJobsVC release];
+     */
 }
 
 
@@ -182,7 +186,6 @@
 }
 
 #pragma mark - Logic
-
 - (void) getJobsList
 {
     [self.view addSubview:darkView];

@@ -33,6 +33,9 @@
 		4F820EEB15CA2CD7003EF417 /* JobApplyVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F820EE915CA2CD7003EF417 /* JobApplyVC.xib */; };
 		4F820EF315CA4482003EF417 /* btn_logout.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F820EF115CA4481003EF417 /* btn_logout.png */; };
 		4F820EF415CA4482003EF417 /* btn_logout_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F820EF215CA4482003EF417 /* btn_logout_pressed.png */; };
+		4F825FEC15F88841003D34AD /* display_acct_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F825FEB15F88841003D34AD /* display_acct_btn@2x.png */; };
+		4F825FF015F892E9003D34AD /* btn_black_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F825FEE15F892E9003D34AD /* btn_black_pressed.png */; };
+		4F825FF115F892E9003D34AD /* btn_black_pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F825FEF15F892E9003D34AD /* btn_black_pressed@2x.png */; };
 		4F83E66515C247D800C928D5 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F83E66415C247D800C928D5 /* CFNetwork.framework */; };
 		4F83E66815C247F400C928D5 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F83E66715C247F400C928D5 /* MobileCoreServices.framework */; };
 		4F83E66A15C248C900C928D5 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F83E66915C248C900C928D5 /* AVFoundation.framework */; };
@@ -126,6 +129,9 @@
 		4F820EE915CA2CD7003EF417 /* JobApplyVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JobApplyVC.xib; sourceTree = "<group>"; };
 		4F820EF115CA4481003EF417 /* btn_logout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_logout.png; sourceTree = "<group>"; };
 		4F820EF215CA4482003EF417 /* btn_logout_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_logout_pressed.png; sourceTree = "<group>"; };
+		4F825FEB15F88841003D34AD /* display_acct_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "display_acct_btn@2x.png"; sourceTree = "<group>"; };
+		4F825FEE15F892E9003D34AD /* btn_black_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_black_pressed.png; sourceTree = "<group>"; };
+		4F825FEF15F892E9003D34AD /* btn_black_pressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_black_pressed@2x.png"; sourceTree = "<group>"; };
 		4F83E66415C247D800C928D5 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		4F83E66715C247F400C928D5 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		4F83E66915C248C900C928D5 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -247,6 +253,7 @@
 		4F79A57115B59D8700C17DB5 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				4F825FEB15F88841003D34AD /* display_acct_btn@2x.png */,
 				4F78057B15C0F8B4009A3AAE /* display_acct_btn.png */,
 				4F79A57415B5A1C300C17DB5 /* image_01.png */,
 			);
@@ -307,9 +314,9 @@
 		4F851A3115AD684F00BC33F6 /* EventsVC */ = {
 			isa = PBXGroup;
 			children = (
-				4F9C611C15EFA54400EB6CA4 /* EventsVC.xib */,
 				4F851A3815AD698E00BC33F6 /* EventsVC.h */,
 				4F851A3915AD698E00BC33F6 /* EventsVC.m */,
+				4F9C611C15EFA54400EB6CA4 /* EventsVC.xib */,
 				4F79A55415B5319600C17DB5 /* EventDetailVC.h */,
 				4F79A55515B5319600C17DB5 /* EventDetailVC.m */,
 				4F79A55615B5319600C17DB5 /* EventDetailVC.xib */,
@@ -423,6 +430,8 @@
 		4F8859F915AC4C7600AB3B2B /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				4F825FEE15F892E9003D34AD /* btn_black_pressed.png */,
+				4F825FEF15F892E9003D34AD /* btn_black_pressed@2x.png */,
 				4F845F7E15CFA19400F6B4BE /* exp_logo@2x.png */,
 				4F845F7F15CFA19400F6B4BE /* icon_arrow@2x.png */,
 				4F845F8015CFA19500F6B4BE /* btn_black@2x.png */,
@@ -658,6 +667,9 @@
 				4F8699BC15D0E3FD0096460B /* li_bg.png in Resources */,
 				4F9C611D15EFA54400EB6CA4 /* EventsVC.xib in Resources */,
 				4F9C61A015F1C39700EB6CA4 /* JobListCell.xib in Resources */,
+				4F825FEC15F88841003D34AD /* display_acct_btn@2x.png in Resources */,
+				4F825FF015F892E9003D34AD /* btn_black_pressed.png in Resources */,
+				4F825FF115F892E9003D34AD /* btn_black_pressed@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

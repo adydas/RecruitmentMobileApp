@@ -10,6 +10,7 @@
 #import "EventDetailVC.h"
 #import "NetworkController.h"
 #import "EventBO.h"
+#import "SUtils.h"
 
 @implementation EventsVC
 @synthesize tableview, events;
@@ -85,15 +86,13 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView
 		 cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	
-//	UIImageView *cellBg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"input_bg.png"]];
     static NSString *SimpleTableIdentifier = @"TableIdentifier";
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:SimpleTableIdentifier];
     if (cell == nil)
     {
 		cell = [[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault
 									  reuseIdentifier:SimpleTableIdentifier] autorelease];
-//        cell.backgroundView = cellBg;
+
         EventBO *eventBO = [events objectAtIndex:indexPath.row];
         titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 8, 200, 20)];
         titleLabel.font = [UIFont fontWithName:Font_TrebuchetMS_Bold size:12.0f];
@@ -110,17 +109,7 @@
         subTitleLabel.textColor = [UIColor grayColor];
         [cell.contentView addSubview:subTitleLabel];
         [subTitleLabel release];
-        
-//        editButton = [UIButton buttonWithType:UIButtonTypeCustom];
-//        editButton.frame =  CGRectMake(220, 18, 20, 20);
-//        [editButton setBackgroundImage:[UIImage imageNamed:@"edit_icon_job.png"] forState:UIControlStateNormal];
-//        [cell.contentView addSubview:editButton];
-//        
-//        favoriteButton = [UIButton buttonWithType:UIButtonTypeCustom];
-//        favoriteButton.frame =  CGRectMake(245, 18, 20, 20);
-//        [favoriteButton setBackgroundImage:[UIImage imageNamed:@"heart_icon_neg.png"] forState:UIControlStateNormal];
-//        [favoriteButton addTarget:self action:@selector(favoriteButtonPressed:) forControlEvents:UIControlEventTouchUpInside];  
-//        [cell.contentView addSubview:favoriteButton];
+    
         
         detailDisclosureButton = [UIButton buttonWithType:UIButtonTypeCustom];
         detailDisclosureButton.frame =  CGRectMake(275, 20, 15, 15);
@@ -144,25 +133,6 @@
     return 55;
 }
 
-#pragma mark - IBActions
-
-
-
--(IBAction) detailDiscolosureIndicatorSelected: (id) sender
-{
-    
-    EventDetailVC *eventDetailVC = [[EventDetailVC alloc] initWithNibName:@"EventDetailVC" bundle:nil];
-    eventDetailVC.eventBO = [events objectAtIndex:[sender tag]];
-    [self.navigationController pushViewController:eventDetailVC animated:YES];
-    [eventDetailVC release];
-    
-}
-//-(IBAction) favoriteButtonPressed: (id) sender
-//{
-//	NSLog(@"Favorite Button Pressed");
-//    [favoriteButton setBackgroundImage:[UIImage imageNamed:@"heart_icon"] forState:UIControlStateNormal];
-//    
-//}
 
 
 #pragma mark - TextField delegate method
@@ -174,38 +144,25 @@
     return YES;
 }
 
--(void) getEventsList
+
+#pragma mark - Members
+- (void) getEventsList
 {
     [self.view addSubview:darkView];
     [activityView startAnimating];
     [[NetworkController singleton] getEventsFromServer:^(int result, NSMutableArray *eventsArray){
         if (result == NO_INTERNET)
         {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:No_Internet_Connection_Title
-                                                            message:No_Internet_Connection_Message
-                                                           delegate:nil cancelButtonTitle:Alert_Button_Title otherButtonTitles:nil];
-            [alert show];
-            [alert release];
-            
+            [SUtils showAlertMsg:No_Internet_Connection_Message title:No_Internet_Connection_Title];
         }
         else if (result == REQUEST_FAILED)
         {
             NSLog(@"Error");
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:Request_Failiure_Title
-                                                            message:Request_Failiure_Message
-                                                           delegate:nil cancelButtonTitle:Alert_Button_Title otherButtonTitles:nil];
-            [alert show];
-            [alert release];
-            
+            [SUtils showAlertMsg:Request_Failiure_Message title:Request_Failiure_Title];
         }
         else if (result == ERROR_OCCURED)
         {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:Request_Error_Title
-                                                            message:Request_Error_Message
-                                                           delegate:nil cancelButtonTitle:Alert_Button_Title otherButtonTitles:nil];
-            [alert show];
-            [alert release];
-            
+            [SUtils showAlertMsg:Request_Error_Message title:Request_Error_Title];
         }        
 
         else if(result == REQUEST_SUCCEEDED){
@@ -216,14 +173,14 @@
     }];
 }
 
--(void)removeOverLay:(NSArray*) results{    
+- (void)removeOverLay:(NSArray*) results{    
     
     [activityView stopAnimating];
 	[darkView removeFromSuperview];
 }
 
 
--(void)initDarkView{
+- (void)initDarkView {
     activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
     [activityView setCenter:CGPointMake(320/2.0, 480/2.0)]; // I do this because I'm in landscape mode
     [self.view addSubview:activityView];
@@ -235,6 +192,16 @@
     
 }
 
+#pragma mark - IBActions
 
+- (IBAction) detailDiscolosureIndicatorSelected: (id) sender
+{
+    
+    EventDetailVC *eventDetailVC = [[EventDetailVC alloc] initWithNibName:@"EventDetailVC" bundle:nil];
+    eventDetailVC.eventBO = [events objectAtIndex:[sender tag]];
+    [self.navigationController pushViewController:eventDetailVC animated:YES];
+    [eventDetailVC release];
+    
+}
 
 @end

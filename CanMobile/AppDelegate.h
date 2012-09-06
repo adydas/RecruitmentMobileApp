@@ -19,8 +19,8 @@
 
 @property (strong, nonatomic) ViewController *viewController;
 
--(void)initDarkView;
--(void)addDarkView;
--(void)removeDarkView;
+- (void)initDarkView;
+- (void)addDarkView;
+- (void)removeDarkView;
 
 @end

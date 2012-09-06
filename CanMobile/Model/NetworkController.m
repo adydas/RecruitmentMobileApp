@@ -32,7 +32,7 @@ NetworkController *singleton;
 
 /***Method Description***/
 //It hits the active jobs url, call a method with the response as parameter that returns jobs Array, it then sends a call back with a bool and the array. Incase of success bool is true and in case of failiure bool is false and array is nil 
-- (void)getJobsFromServer:(ConditionCallbackWithArg)callback
+- (void) getJobsFromServer : (ConditionCallbackWithArg) callback
 {
     __block NSMutableURLRequest *request;
     __block AFJSONRequestOperation *operation;
@@ -202,10 +202,8 @@ NetworkController *singleton;
         }
     }];
 
-    
 }
     
-
 /***Method Description***/
 //It hits the active events url, call a method with the response as parameter that returns events Array, it then sends a call back with a bool and the array. Incase of success bool is true and in case of failiure bool is false and array is nil 
 -(void)getEventsFromServer:(ConditionCallbackWithArg)callback
@@ -262,7 +260,6 @@ NetworkController *singleton;
         }
     }];
  
-    
 }
 
 /***Method Description***/
@@ -473,7 +470,7 @@ NetworkController *singleton;
     NSLog(@"%@",NSStringFromClass([json class]));
     NSArray *arr = [json valueForKey:Events_List_Key];
     NSLog(@"%d",[arr count]);
-    for(int i = 0; i < [arr count]; i++){
+    for (int i = 0; i < [arr count]; i++) {
         
         NSDictionary *objDic     = [arr objectAtIndex:i];
         EventBO *eventBO         = [[EventBO alloc] init];
