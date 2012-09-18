@@ -17,6 +17,7 @@
 @property (nonatomic, retain) IBOutlet UITextField *password;
 
 - (IBAction) loginButtonPressed:(id)sender;
-
+- (IBAction) onClickForgotPassword:(id)sender;
+- (IBAction) onClickRegister:(id)sender;
 
 @end

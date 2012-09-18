@@ -13,6 +13,7 @@
 #import "SUtils.h"
 
 @implementation EventsVC
+@synthesize m_eventCell;
 @synthesize tableview, events;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -56,6 +57,7 @@
 
 - (void)viewDidUnload
 {
+    [self setM_eventCell:nil];
     [super viewDidUnload];
     self.tableview = nil;
     self.events = nil;
@@ -71,6 +73,7 @@
 {
     [self.tableview release];
     [self.events release];
+    [m_eventCell release];
     [super dealloc];
 }
 
@@ -86,47 +89,21 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView
 		 cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *SimpleTableIdentifier = @"TableIdentifier";
-	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:SimpleTableIdentifier];
-    if (cell == nil)
-    {
-		cell = [[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault
-									  reuseIdentifier:SimpleTableIdentifier] autorelease];
-
-        EventBO *eventBO = [events objectAtIndex:indexPath.row];
-        titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 8, 200, 20)];
-        titleLabel.font = [UIFont fontWithName:Font_TrebuchetMS_Bold size:12.0f];
-        titleLabel.text = eventBO.eventName;
-        titleLabel.backgroundColor = [UIColor clearColor];
-        [cell.contentView addSubview:titleLabel];
-        [titleLabel release];
-        
-        
-        subTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 20, 300, 30)];
-        subTitleLabel.font = [UIFont fontWithName:Font_HelveticaNeue size:10.0f];
-        subTitleLabel.text = eventBO.eventDescription;
-        subTitleLabel.backgroundColor = [UIColor clearColor];
-        subTitleLabel.textColor = [UIColor grayColor];
-        [cell.contentView addSubview:subTitleLabel];
-        [subTitleLabel release];
     
-        
-        detailDisclosureButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        detailDisclosureButton.frame =  CGRectMake(275, 20, 15, 15);
-        [detailDisclosureButton setBackgroundImage:[UIImage imageNamed:Detail_Disclosure_Arrow] forState:UIControlStateNormal];
-        [detailDisclosureButton addTarget:self action:@selector(detailDiscolosureIndicatorSelected:) forControlEvents:UIControlEventTouchUpInside];  
-        detailDisclosureButton.tag = [indexPath row];
-        [cell.contentView addSubview:detailDisclosureButton];
-
-    }
+    EventBO *eventBO = nil;
+    eventBO = [events objectAtIndex:indexPath.row];
     
-    	
-    return cell;
+    [[NSBundle mainBundle] loadNibNamed:@"EventListCell" owner:self options:nil];
     
+    m_eventCell.m_labelName.text = eventBO.eventName;
+    m_eventCell.m_btnCheckIn.tag = indexPath.row;
+    
+    return m_eventCell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    	[tableView deselectRowAtIndexPath:indexPath animated:NO];
+ //   	[tableView deselectRowAtIndexPath:indexPath animated:NO];
+    
 }
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

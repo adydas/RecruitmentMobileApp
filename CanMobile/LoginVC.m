@@ -19,10 +19,8 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        //self.title = @"Home / Sign in";
         UIImageView *homeImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:Login_Home_Icon]];
         homeImageView.frame = CGRectMake(-70, -10, 16, 16);
-//                self.navigationItem.titleView = homeImageView;
         
         CGRect frame = CGRectMake(-80, -25, 200, 44);
         UILabel *label = [[[UILabel alloc] initWithFrame:frame] autorelease];
@@ -78,7 +76,6 @@
     [super dealloc];
 }
 
-
 #pragma mark - IBActions
 
 - (IBAction)loginButtonPressed : (id)sender
@@ -94,17 +91,25 @@
     }
     else 
     {
-            [[NSUserDefaults standardUserDefaults]
-             setObject:userId forKey:User_Name_Key_For_User_Defaults];
-            [[NSUserDefaults standardUserDefaults] setObject:pwd forKey:Password_Key_For_User_Defaults];
+        [[NSUserDefaults standardUserDefaults]
+         setObject:userId forKey:User_Name_Key_For_User_Defaults];
+        [[NSUserDefaults standardUserDefaults] setObject:pwd forKey:Password_Key_For_User_Defaults];
 
-            [self.view addSubview:darkView];
-            [activityView startAnimating];
-            [self performSelectorInBackground:@selector(performLogin) withObject:nil];
+        [self.view addSubview:darkView];
+        [activityView startAnimating];
+        [self performSelectorInBackground:@selector(performLogin) withObject:nil];
     }
 
 } 
-        
+
+- (IBAction)onClickForgotPassword:(id)sender {
+    
+}
+
+- (IBAction)onClickRegister:(id)sender {
+    
+}
+
 - (void) performLogin {
 
 	[[NetworkController singleton] loginWithServer:^(int result, NSString *usernameString ) {

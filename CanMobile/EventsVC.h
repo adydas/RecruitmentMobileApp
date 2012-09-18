@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "JobsVC.h"
+#import "EventListCell.h"
 
 @interface EventsVC : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
@@ -21,10 +22,9 @@
     IBOutlet UIActivityIndicatorView *activityView;
 }
 
-
-
 @property (nonatomic, retain) IBOutlet UITableView *tableview;
 @property (nonatomic, retain)   NSMutableArray *events;
+@property (retain, nonatomic) IBOutlet EventListCell *m_eventCell;
 
 - (void) getEventsList;
 - (void) initDarkView;

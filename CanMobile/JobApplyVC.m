@@ -10,7 +10,10 @@
 #import "AppDelegate.h"
 
 @implementation JobApplyVC
+@synthesize m_labelLocation;
 @synthesize applyUrl;
+@synthesize m_labelJobTitle;
+@synthesize m_labelJobDesc;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -46,6 +49,9 @@
 
 - (void)viewDidUnload
 {
+    [self setM_labelLocation:nil];
+    [self setM_labelJobTitle:nil];
+    [self setM_labelJobDesc:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -63,6 +69,21 @@
 
 }
 
+- (void)dealloc {
+    [m_labelLocation release];
+    [m_labelJobTitle release];
+    [m_labelJobDesc release];
+    [super dealloc];
+}
+
+#pragma mark - Actions
+- (IBAction)onClickChooseResumeBtn:(id)sender {
+    
+}
+
+- (IBAction)onClickApplyBtn:(id)sender {
+    
+}
 
 
 @end

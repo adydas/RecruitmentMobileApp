@@ -399,6 +399,7 @@ NetworkController *singleton;
                           stringForKey:User_Name_Key_For_User_Defaults];
     NSString *password = [[NSUserDefaults standardUserDefaults]
                           stringForKey:Password_Key_For_User_Defaults];
+    
     NSString *requestPath = [NSString stringWithFormat:Login_API_Url, username, password];
     [httpClient setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
         
@@ -454,6 +455,7 @@ NetworkController *singleton;
             jobBO.jobTitle       = [objDic valueForKey:Job_Title];
             jobBO.jobDescription = [objDic  valueForKey:Job_Description];
             jobBO.employerName   = [objDic  valueForKey:Job_Employer_Name];
+            jobBO.jobLocation    = [objDic  valueForKey:Job_Location];
         jobBO.jobApplyUrl = [objDic valueForKey: Job_Apply_Url];
         
         [jobsArray addObject:jobBO];

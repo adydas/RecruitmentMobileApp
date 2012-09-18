@@ -7,22 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FavJobListCell.h"
 
 @interface FavoriteJobsVC : UIViewController <UITableViewDataSource, UITableViewDelegate>
 {
-    UILabel *titleLabel;
-    UILabel *subTitleLabel;
-    UIButton *editButton;
-    UIButton *favoriteButton;
-    UIButton *detailDisclosureButton;
     IBOutlet UIView *darkView;
     IBOutlet UIActivityIndicatorView *activityView;
 }
 
+@property (retain, nonatomic) IBOutlet FavJobListCell *m_favJobListCell;
 @property (nonatomic, retain) IBOutlet UITableView *tableview;
 @property (nonatomic, retain) NSMutableArray *favoriteJobs;
 
--(IBAction) applyForJobButtonSelected: (id) sender;
--(void) getFavoriteJobsList;
+- (void) getFavoriteJobsList;
+
+- (IBAction) applyForJobButtonSelected: (id) sender;
+
 @end
 

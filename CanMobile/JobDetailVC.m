@@ -45,7 +45,7 @@
     
     
     jobNameLabel.text = jobBO.jobTitle;
-    jobNameDetailedLabel.text = jobBO.jobLocation;
+    jobNameDetailedLabel.text = [NSString stringWithFormat:@"%@ | %@", jobBO.employerName, jobBO.jobLocation];
     jobDetailTextView.text = jobBO.jobDescription;
 }
 

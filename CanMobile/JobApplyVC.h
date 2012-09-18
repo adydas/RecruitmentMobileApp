@@ -13,8 +13,15 @@
     IBOutlet UIView *darkView;
     IBOutlet UIActivityIndicatorView *activityView;
 }
-
-
 @property (nonatomic, retain) NSString *applyUrl;
+
+@property (retain, nonatomic) IBOutlet UILabel *m_labelJobTitle;
+@property (retain, nonatomic) IBOutlet UILabel *m_labelJobDesc;
+@property (retain, nonatomic) IBOutlet UILabel *m_labelLocation;
+
+
+- (IBAction)onClickChooseResumeBtn:(id)sender;
+- (IBAction)onClickApplyBtn:(id)sender;
+
 
 @end

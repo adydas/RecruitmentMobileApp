@@ -19,7 +19,7 @@
 @property (nonatomic, retain) IBOutlet UILabel *timeLabel;
 @property (nonatomic, retain) EventBO *eventBO;
 
--(IBAction)editButtonPressed:(id)sender;
--(IBAction)favoriteButtonPressed:(id)sender;
+- (IBAction)editButtonPressed:(id)sender;
+- (IBAction)favoriteButtonPressed:(id)sender;
 
 @end

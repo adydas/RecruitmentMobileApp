@@ -101,7 +101,8 @@
     [[NSBundle mainBundle] loadNibNamed:@"JobListCell" owner:self options:nil];
     
     m_JobListCell.m_labelTitle.text = jobBo.jobTitle;
-    m_JobListCell.m_labelDescription.text = jobBo.employerName;
+    m_JobListCell.m_labelDescription.text = [NSString stringWithFormat:@"%@ | %@", jobBo.employerName, jobBo.jobLocation];
+    
     m_JobListCell.m_btnEdit.tag = indexPath.row;
     m_JobListCell.m_btnFavorite.tag = indexPath.row;
     m_JobListCell.m_btnDetail.tag = indexPath.row;

@@ -18,6 +18,7 @@
 @property (nonatomic, retain) JobBO *jobBO;
 
 
--(IBAction)jobApplyButtonPressed:(id)sender;
--(IBAction)favoriteButtonPressed:(id)sender;
+- (IBAction) jobApplyButtonPressed:(id)sender;
+- (IBAction) favoriteButtonPressed:(id)sender;
+
 @end

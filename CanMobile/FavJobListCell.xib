@@ -41,13 +41,12 @@
 						<reference key="NSNextResponder" ref="516879557"/>
 						<int key="NSvFlags">256</int>
 						<array class="NSMutableArray" key="NSSubviews">
-							<object class="IBUIImageView" id="211828992">
+							<object class="IBUIImageView" id="781806893">
 								<reference key="NSNextResponder" ref="690069490"/>
 								<int key="NSvFlags">292</int>
 								<string key="NSFrameSize">{300, 54}</string>
 								<reference key="NSSuperview" ref="690069490"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="441564573"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -128,7 +127,7 @@
 							<object class="IBUIButton" id="169892193">
 								<reference key="NSNextResponder" ref="690069490"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{240, 20}, {20, 20}}</string>
+								<string key="NSFrame">{{241, 20}, {20, 20}}</string>
 								<reference key="NSSuperview" ref="690069490"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="170920476"/>
@@ -163,9 +162,10 @@
 							<object class="IBUIButton" id="170920476">
 								<reference key="NSNextResponder" ref="690069490"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{264, 19}, {20, 20}}</string>
+								<string key="NSFrame">{{267, 19}, {20, 20}}</string>
 								<reference key="NSSuperview" ref="690069490"/>
 								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -179,7 +179,7 @@
 								<reference key="IBUINormalTitleShadowColor" ref="542515775"/>
 								<object class="NSCustomResource" key="IBUINormalImage">
 									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">ratestar.png</string>
+									<string key="NSResourceName">heart_icon.png</string>
 								</object>
 								<reference key="IBUIFontDescription" ref="795859194"/>
 								<reference key="IBUIFont" ref="865031735"/>
@@ -188,7 +188,7 @@
 						<string key="NSFrameSize">{300, 54}</string>
 						<reference key="NSSuperview" ref="516879557"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="211828992"/>
+						<reference key="NSNextKeyView" ref="441564573"/>
 						<string key="NSReuseIdentifierKey">_NS:11</string>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">3</int>
@@ -206,10 +206,6 @@
 				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="690069490"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
-				<object class="NSColor" key="IBUIBackgroundColor">
-					<int key="NSColorSpace">3</int>
-					<bytes key="NSWhite">MC42NjY2NjY2NjY3AA</bytes>
-				</object>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 				<int key="IBUISelectionStyle">0</int>
 				<reference key="IBUIContentView" ref="690069490"/>
@@ -219,11 +215,11 @@
 			<array class="NSMutableArray" key="connectionRecords">
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">m_JobListCell</string>
+						<string key="label">m_favJobListCell</string>
 						<reference key="source" ref="372490531"/>
 						<reference key="destination" ref="516879557"/>
 					</object>
-					<int key="connectionID">14</int>
+					<int key="connectionID">18</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
@@ -264,16 +260,7 @@
 						<reference key="destination" ref="372490531"/>
 						<int key="IBEventType">7</int>
 					</object>
-					<int key="connectionID">15</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">addToFavoritesButtonpressed:</string>
-						<reference key="source" ref="170920476"/>
-						<reference key="destination" ref="372490531"/>
-						<int key="IBEventType">7</int>
-					</object>
-					<int key="connectionID">16</int>
+					<int key="connectionID">20</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -303,7 +290,7 @@
 							<reference ref="569510582"/>
 							<reference ref="169892193"/>
 							<reference ref="170920476"/>
-							<reference ref="211828992"/>
+							<reference ref="781806893"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -328,19 +315,19 @@
 						<reference key="parent" ref="516879557"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">18</int>
-						<reference key="object" ref="211828992"/>
+						<int key="objectID">21</int>
+						<reference key="object" ref="781806893"/>
 						<reference key="parent" ref="516879557"/>
 					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
-				<string key="-1.CustomClassName">JobsVC</string>
+				<string key="-1.CustomClassName">FavoriteJobsVC</string>
 				<string key="-1.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="-2.CustomClassName">UIResponder</string>
 				<string key="-2.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<string key="18.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<string key="3.CustomClassName">JobListCell</string>
+				<string key="21.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="3.CustomClassName">FavJobListCell</string>
 				<string key="3.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="4.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="5.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -351,12 +338,12 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">18</int>
+			<int key="maxID">21</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
 				<object class="IBPartialClassDescription">
-					<string key="className">JobListCell</string>
+					<string key="className">FavJobListCell</string>
 					<string key="superclassName">UITableViewCell</string>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="m_btnDetail">UIButton</string>
@@ -389,41 +376,27 @@
 					</dictionary>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/JobListCell.h</string>
+						<string key="minorKey">./Classes/FavJobListCell.h</string>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
-					<string key="className">JobsVC</string>
+					<string key="className">FavoriteJobsVC</string>
 					<string key="superclassName">UIViewController</string>
-					<dictionary class="NSMutableDictionary" key="actions">
-						<string key="addToFavoritesButtonpressed:">id</string>
-						<string key="applyForJobButtonSelected:">id</string>
-						<string key="detailDiscolosureIndicatorSelected:">id</string>
-						<string key="goButtonPressed:">id</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="actionInfosByName">
-						<object class="IBActionInfo" key="addToFavoritesButtonpressed:">
-							<string key="name">addToFavoritesButtonpressed:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="applyForJobButtonSelected:">
+					<object class="NSMutableDictionary" key="actions">
+						<string key="NS.key.0">applyForJobButtonSelected:</string>
+						<string key="NS.object.0">id</string>
+					</object>
+					<object class="NSMutableDictionary" key="actionInfosByName">
+						<string key="NS.key.0">applyForJobButtonSelected:</string>
+						<object class="IBActionInfo" key="NS.object.0">
 							<string key="name">applyForJobButtonSelected:</string>
 							<string key="candidateClassName">id</string>
 						</object>
-						<object class="IBActionInfo" key="detailDiscolosureIndicatorSelected:">
-							<string key="name">detailDiscolosureIndicatorSelected:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="goButtonPressed:">
-							<string key="name">goButtonPressed:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-					</dictionary>
+					</object>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="activityView">UIActivityIndicatorView</string>
 						<string key="darkView">UIView</string>
-						<string key="keywordSearch">UITextField</string>
-						<string key="m_JobListCell">JobListCell</string>
+						<string key="m_favJobListCell">FavJobListCell</string>
 						<string key="tableview">UITableView</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
@@ -435,13 +408,9 @@
 							<string key="name">darkView</string>
 							<string key="candidateClassName">UIView</string>
 						</object>
-						<object class="IBToOneOutletInfo" key="keywordSearch">
-							<string key="name">keywordSearch</string>
-							<string key="candidateClassName">UITextField</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="m_JobListCell">
-							<string key="name">m_JobListCell</string>
-							<string key="candidateClassName">JobListCell</string>
+						<object class="IBToOneOutletInfo" key="m_favJobListCell">
+							<string key="name">m_favJobListCell</string>
+							<string key="candidateClassName">FavJobListCell</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="tableview">
 							<string key="name">tableview</string>
@@ -450,7 +419,7 @@
 					</dictionary>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/JobsVC.h</string>
+						<string key="minorKey">./Classes/FavoriteJobsVC.h</string>
 					</object>
 				</object>
 			</array>
@@ -465,8 +434,8 @@
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
 			<string key="edit_icon_job.png">{16, 16}</string>
+			<string key="heart_icon.png">{20, 20}</string>
 			<string key="input_bg.png">{5, 58}</string>
-			<string key="ratestar.png">{37, 36}</string>
 		</dictionary>
 		<string key="IBCocoaTouchPluginVersion">1181</string>
 	</data>

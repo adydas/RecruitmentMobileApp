@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 
 #import "ViewController.h"
+#import "SelectLoginVC.h"
 #import "LoginVC.h"
 
 @implementation AppDelegate
@@ -37,9 +38,14 @@
                                                         barMetrics:UIBarMetricsDefault];
 
     [self initDarkView];
-    LoginVC *loginVC = [[LoginVC alloc] initWithNibName:@"LoginVC" bundle:nil];
-    self.viewController = [[ViewController alloc] initWithRootViewController:loginVC];
+    
+    SelectLoginVC *selectLoginVC = [[SelectLoginVC alloc] initWithNibName:@"SelectLoginVC" bundle:nil];
+
+   // LoginVC *loginVC = [[LoginVC alloc] initWithNibName:@"LoginVC" bundle:nil];
+    self.viewController = [[ViewController alloc] initWithRootViewController:selectLoginVC];
     self.window.rootViewController = self.viewController;
+    
+    
 
     [self.window makeKeyAndVisible];
     return YES;

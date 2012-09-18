@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F3B475215FD7E6200E20F94 /* SelectLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F3B475015FD7E6200E20F94 /* SelectLoginVC.m */; };
+		4F3B475315FD7E6200E20F94 /* SelectLoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F3B475115FD7E6200E20F94 /* SelectLoginVC.xib */; };
+		4F3B4776160183AF00E20F94 /* EventListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F3B4775160183AF00E20F94 /* EventListCell.m */; };
+		4F3B4779160183C200E20F94 /* EventListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F3B4778160183C200E20F94 /* EventListCell.xib */; };
 		4F78057C15C0F8B4009A3AAE /* display_acct_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F78057B15C0F8B4009A3AAE /* display_acct_btn.png */; };
 		4F78058915C0FF6D009A3AAE /* btn_black.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F78058815C0FF6D009A3AAE /* btn_black.png */; };
 		4F78058C15C11696009A3AAE /* btn_login.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F78058A15C11696009A3AAE /* btn_login.png */; };
@@ -36,6 +40,8 @@
 		4F825FEC15F88841003D34AD /* display_acct_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F825FEB15F88841003D34AD /* display_acct_btn@2x.png */; };
 		4F825FF015F892E9003D34AD /* btn_black_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F825FEE15F892E9003D34AD /* btn_black_pressed.png */; };
 		4F825FF115F892E9003D34AD /* btn_black_pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F825FEF15F892E9003D34AD /* btn_black_pressed@2x.png */; };
+		4F82600115F8AB99003D34AD /* FavJobListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F825FFF15F8AB99003D34AD /* FavJobListCell.m */; };
+		4F82600215F8AB99003D34AD /* FavJobListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F82600015F8AB99003D34AD /* FavJobListCell.xib */; };
 		4F83E66515C247D800C928D5 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F83E66415C247D800C928D5 /* CFNetwork.framework */; };
 		4F83E66815C247F400C928D5 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F83E66715C247F400C928D5 /* MobileCoreServices.framework */; };
 		4F83E66A15C248C900C928D5 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F83E66915C248C900C928D5 /* AVFoundation.framework */; };
@@ -99,6 +105,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4F3B474F15FD7E6200E20F94 /* SelectLoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectLoginVC.h; sourceTree = "<group>"; };
+		4F3B475015FD7E6200E20F94 /* SelectLoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectLoginVC.m; sourceTree = "<group>"; };
+		4F3B475115FD7E6200E20F94 /* SelectLoginVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectLoginVC.xib; sourceTree = "<group>"; };
+		4F3B4774160183AF00E20F94 /* EventListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventListCell.h; sourceTree = "<group>"; };
+		4F3B4775160183AF00E20F94 /* EventListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventListCell.m; sourceTree = "<group>"; };
+		4F3B4778160183C200E20F94 /* EventListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventListCell.xib; sourceTree = "<group>"; };
 		4F78057B15C0F8B4009A3AAE /* display_acct_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = display_acct_btn.png; sourceTree = "<group>"; };
 		4F78058815C0FF6D009A3AAE /* btn_black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_black.png; sourceTree = "<group>"; };
 		4F78058A15C11696009A3AAE /* btn_login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_login.png; sourceTree = "<group>"; };
@@ -132,6 +144,9 @@
 		4F825FEB15F88841003D34AD /* display_acct_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "display_acct_btn@2x.png"; sourceTree = "<group>"; };
 		4F825FEE15F892E9003D34AD /* btn_black_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_black_pressed.png; sourceTree = "<group>"; };
 		4F825FEF15F892E9003D34AD /* btn_black_pressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_black_pressed@2x.png"; sourceTree = "<group>"; };
+		4F825FFE15F8AB99003D34AD /* FavJobListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavJobListCell.h; sourceTree = "<group>"; };
+		4F825FFF15F8AB99003D34AD /* FavJobListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavJobListCell.m; sourceTree = "<group>"; };
+		4F82600015F8AB99003D34AD /* FavJobListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavJobListCell.xib; sourceTree = "<group>"; };
 		4F83E66415C247D800C928D5 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		4F83E66715C247F400C928D5 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		4F83E66915C248C900C928D5 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -423,6 +438,9 @@
 				4F8519DB15AD466000BC33F6 /* LoginVC.h */,
 				4F8519DC15AD466000BC33F6 /* LoginVC.m */,
 				4F8519DD15AD466000BC33F6 /* LoginVC.xib */,
+				4F3B474F15FD7E6200E20F94 /* SelectLoginVC.h */,
+				4F3B475015FD7E6200E20F94 /* SelectLoginVC.m */,
+				4F3B475115FD7E6200E20F94 /* SelectLoginVC.xib */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -561,9 +579,15 @@
 		4F9C619A15F1C31A00EB6CA4 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				4F825FFE15F8AB99003D34AD /* FavJobListCell.h */,
+				4F825FFF15F8AB99003D34AD /* FavJobListCell.m */,
+				4F82600015F8AB99003D34AD /* FavJobListCell.xib */,
 				4F9C619C15F1C38700EB6CA4 /* JobListCell.h */,
 				4F9C619D15F1C38700EB6CA4 /* JobListCell.m */,
 				4F9C619F15F1C39700EB6CA4 /* JobListCell.xib */,
+				4F3B4774160183AF00E20F94 /* EventListCell.h */,
+				4F3B4775160183AF00E20F94 /* EventListCell.m */,
+				4F3B4778160183C200E20F94 /* EventListCell.xib */,
 			);
 			name = CustomViews;
 			sourceTree = "<group>";
@@ -670,6 +694,9 @@
 				4F825FEC15F88841003D34AD /* display_acct_btn@2x.png in Resources */,
 				4F825FF015F892E9003D34AD /* btn_black_pressed.png in Resources */,
 				4F825FF115F892E9003D34AD /* btn_black_pressed@2x.png in Resources */,
+				4F82600215F8AB99003D34AD /* FavJobListCell.xib in Resources */,
+				4F3B475315FD7E6200E20F94 /* SelectLoginVC.xib in Resources */,
+				4F3B4779160183C200E20F94 /* EventListCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -709,6 +736,9 @@
 				4F9C618515F0BBFB00EB6CA4 /* ProfileBO.m in Sources */,
 				4F9C618815F0BC1D00EB6CA4 /* NetworkController.m in Sources */,
 				4F9C619E15F1C38700EB6CA4 /* JobListCell.m in Sources */,
+				4F82600115F8AB99003D34AD /* FavJobListCell.m in Sources */,
+				4F3B475215FD7E6200E20F94 /* SelectLoginVC.m in Sources */,
+				4F3B4776160183AF00E20F94 /* EventListCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
