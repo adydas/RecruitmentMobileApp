@@ -93,7 +93,7 @@
 					<object class="IBUIButton" id="779715302">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{35, 168}, {250, 25}}</string>
+						<string key="NSFrame">{{30, 143}, {261, 31}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="435626660"/>
@@ -114,9 +114,13 @@
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MC41AA</bytes>
 						</object>
-						<object class="NSCustomResource" key="IBUINormalBackgroundImage" id="58305037">
+						<object class="NSCustomResource" key="IBUIHighlightedBackgroundImage" id="59313935">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">display_acct_btn.png</string>
+							<string key="NSResourceName">combobox_selected.png</string>
+						</object>
+						<object class="NSCustomResource" key="IBUINormalBackgroundImage" id="392641451">
+							<string key="NSClassName">NSImage</string>
+							<string key="NSResourceName">combobox.png</string>
 						</object>
 						<object class="IBUIFontDescription" key="IBUIFontDescription" id="612828328">
 							<int key="type">2</int>
@@ -131,7 +135,7 @@
 					<object class="IBUILabel" id="1056473141">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{35, 144}, {250, 21}}</string>
+						<string key="NSFrame">{{35, 119}, {250, 21}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="779715302"/>
@@ -187,7 +191,7 @@
 					<object class="IBUIButton" id="82190722">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{35, 111}, {250, 25}}</string>
+						<string key="NSFrame">{{30, 76}, {261, 31}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="1056473141"/>
@@ -202,14 +206,15 @@
 							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
 						</object>
 						<reference key="IBUINormalTitleShadowColor" ref="641420090"/>
-						<reference key="IBUINormalBackgroundImage" ref="58305037"/>
+						<reference key="IBUIHighlightedBackgroundImage" ref="59313935"/>
+						<reference key="IBUINormalBackgroundImage" ref="392641451"/>
 						<reference key="IBUIFontDescription" ref="612828328"/>
 						<reference key="IBUIFont" ref="923257333"/>
 					</object>
 					<object class="IBUILabel" id="659828581">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{35, 87}, {250, 21}}</string>
+						<string key="NSFrame">{{35, 52}, {250, 21}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="82190722"/>
@@ -594,6 +599,7 @@
 				<string key="-2.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="1.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="11.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<real value="1" key="11.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
 				<string key="12.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="14.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="15.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -607,6 +613,7 @@
 				<string key="4.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="5.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="6.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<real value="1" key="6.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
 				<string key="7.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="8.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			</dictionary>
@@ -676,7 +683,8 @@
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
 			<string key="btn_login.png">{112, 30}</string>
-			<string key="display_acct_btn.png">{250, 25}</string>
+			<string key="combobox.png">{261, 31}</string>
+			<string key="combobox_selected.png">{261, 31}</string>
 		</dictionary>
 		<string key="IBCocoaTouchPluginVersion">1181</string>
 	</data>

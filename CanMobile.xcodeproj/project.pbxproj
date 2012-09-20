@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F07558F160B0DFA00FF48DA /* combobox_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F07558B160B0DFA00FF48DA /* combobox_selected.png */; };
+		4F075590160B0DFA00FF48DA /* combobox_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F07558C160B0DFA00FF48DA /* combobox_selected@2x.png */; };
+		4F075591160B0DFA00FF48DA /* combobox.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F07558D160B0DFA00FF48DA /* combobox.png */; };
+		4F075592160B0DFA00FF48DA /* combobox@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F07558E160B0DFA00FF48DA /* combobox@2x.png */; };
 		4F3B475215FD7E6200E20F94 /* SelectLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F3B475015FD7E6200E20F94 /* SelectLoginVC.m */; };
 		4F3B475315FD7E6200E20F94 /* SelectLoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F3B475115FD7E6200E20F94 /* SelectLoginVC.xib */; };
 		4F3B4776160183AF00E20F94 /* EventListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F3B4775160183AF00E20F94 /* EventListCell.m */; };
@@ -105,6 +109,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4F07558B160B0DFA00FF48DA /* combobox_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = combobox_selected.png; sourceTree = "<group>"; };
+		4F07558C160B0DFA00FF48DA /* combobox_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "combobox_selected@2x.png"; sourceTree = "<group>"; };
+		4F07558D160B0DFA00FF48DA /* combobox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = combobox.png; sourceTree = "<group>"; };
+		4F07558E160B0DFA00FF48DA /* combobox@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "combobox@2x.png"; sourceTree = "<group>"; };
 		4F3B474F15FD7E6200E20F94 /* SelectLoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectLoginVC.h; sourceTree = "<group>"; };
 		4F3B475015FD7E6200E20F94 /* SelectLoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectLoginVC.m; sourceTree = "<group>"; };
 		4F3B475115FD7E6200E20F94 /* SelectLoginVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectLoginVC.xib; sourceTree = "<group>"; };
@@ -473,6 +481,10 @@
 		4F8859FA15AC4C7600AB3B2B /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				4F07558B160B0DFA00FF48DA /* combobox_selected.png */,
+				4F07558C160B0DFA00FF48DA /* combobox_selected@2x.png */,
+				4F07558D160B0DFA00FF48DA /* combobox.png */,
+				4F07558E160B0DFA00FF48DA /* combobox@2x.png */,
 				4F8699BB15D0E3FD0096460B /* li_bg.png */,
 				4F78058A15C11696009A3AAE /* btn_login.png */,
 				4F78058B15C11696009A3AAE /* input_bg.png */,
@@ -697,6 +709,10 @@
 				4F82600215F8AB99003D34AD /* FavJobListCell.xib in Resources */,
 				4F3B475315FD7E6200E20F94 /* SelectLoginVC.xib in Resources */,
 				4F3B4779160183C200E20F94 /* EventListCell.xib in Resources */,
+				4F07558F160B0DFA00FF48DA /* combobox_selected.png in Resources */,
+				4F075590160B0DFA00FF48DA /* combobox_selected@2x.png in Resources */,
+				4F075591160B0DFA00FF48DA /* combobox.png in Resources */,
+				4F075592160B0DFA00FF48DA /* combobox@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -55,7 +55,7 @@
     topLabel.backgroundColor = [UIColor clearColor];
     topLabel.font = [UIFont fontWithName:Font_TrebuchetMS_Bold size:15.0f];
     topLabel.text = Navigation_Bar_Title_Text;
-    self.navigationItem.titleView = topLabel ;
+    self.navigationItem.titleView = topLabel;
     [topLabel release];
 
 }
@@ -122,7 +122,7 @@
 }
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 55;
+    return 60;
 }
 
 

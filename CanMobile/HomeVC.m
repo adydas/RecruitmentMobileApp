@@ -153,7 +153,7 @@
         }
         else if (result == REQUEST_SUCCEEDED){
             NSLog(@"success");
-            self.username.text = userNameString;
+            self.username.text = [NSString stringWithFormat:@"Welcome, %@.", userNameString];
         }
         [self performSelectorOnMainThread:@selector(removeOverLay:) withObject:userNameString waitUntilDone:NO];
     }];	
