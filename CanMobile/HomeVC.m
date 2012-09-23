@@ -7,10 +7,7 @@
 //
 
 #import "HomeVC.h"
-#import "JobsVC.h"
-#import "EventsVC.h"
-#import "ProfileVC.h"
-#import "FavoriteJobsVC.h"
+#import "MainScreen.h"
 #import "NetworkController.h"
 #import "LoginVC.h"
 #import "AppDelegate.h"
@@ -24,11 +21,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        UITabBarItem * tabtitle = [[UITabBarItem alloc] initWithTitle: @"Home"
-                                                                image: [UIImage imageNamed:Home_tab_Image] //or your icon 
-                                                                  tag: 0];
-        
-        [self setTabBarItem: tabtitle];
+        /*
 
         UIImage *logoImage = [UIImage imageNamed:Experience_Logo];
         UIImageView *logoImageView = [[UIImageView alloc] initWithImage:logoImage];
@@ -44,6 +37,7 @@
         logoutButton = [[UIBarButtonItem alloc] initWithCustomView:customView];
         
         self.navigationItem.rightBarButtonItem = logoutButton;
+         */
     }
     return self;
 }
@@ -79,60 +73,13 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
--(void) dealloc
+- (void) dealloc
 {
     [self.username release];
     [super dealloc];
 }
 
-#pragma mark - IBActions
-
--(IBAction)searchJobsButtonpressed:(id)sender
-{
-    JobsVC *jobsVC = [[JobsVC alloc] initWithNibName:@"JobsVC" bundle:nil];
-    [self.navigationController pushViewController:jobsVC animated:YES];
-    [jobsVC release];
-    NSLog(@"searchJobs button pressed");
-}
-
--(IBAction)favoriteJobsButtonpressed:(id)sender
-{
-
-    NSLog(@"favoriteJobs button pressed");
-    FavoriteJobsVC *favoriteJobsVC = [[FavoriteJobsVC alloc] initWithNibName:@"FavoriteJobsVC" bundle:nil];
-    [self.navigationController pushViewController:favoriteJobsVC animated:YES];
-    [favoriteJobsVC release];
-    
-    
-}
-
--(IBAction)upcomingEventsButtonpressed:(id)sender
-{
-    EventsVC *eventsVC = [[EventsVC alloc] initWithNibName:@"EventsVC" bundle:nil];
-    [self.navigationController pushViewController:eventsVC animated:YES];
-    //[eventsVC release];
-    NSLog(@"upcomingEvents button pressed");
-}
-
--(IBAction)myProfileButtonpressed:(id)sender
-{
-    ProfileVC *profileVC = [[ProfileVC alloc] initWithNibName:@"ProfileVC" bundle:nil];
-    [self.navigationController pushViewController:profileVC animated:YES];
-    [ProfileVC release];
-    NSLog(@"myProfile button pressed");
-}
-
--(IBAction) logoutButtonPressed: (id) sender 
-{
-     AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    LoginVC *loginVC = [[LoginVC alloc] initWithNibName:@"LoginVC" bundle:nil];
-    delegate.viewController = [[ViewController alloc] initWithRootViewController:loginVC];
-    delegate.window.rootViewController = delegate.viewController;
-    [[NSUserDefaults standardUserDefaults] setValue:@"" forKey:User_Name_Key_For_User_Defaults];
-    [[NSUserDefaults standardUserDefaults] setValue:@"" forKey:Password_Key_For_User_Defaults];
-}
-
-
+#pragma mark - Member Functions
 
 
 - (void)getFirstAndLastName{
@@ -163,15 +110,69 @@
 }
 
 
--(void)removeOverLay:(NSString*) results{    
+- (void)removeOverLay:(NSString*) results{    
     
     [activityView stopAnimating];
 	[darkView removeFromSuperview];
     
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+#pragma mark - IBActions
+
+- (IBAction)searchJobsButtonpressed:(id)sender
+{    
+    NSLog(@"searchJobs button pressed");
+    
+    MainScreen *mainScreen = [[MainScreen alloc] initWithNibName:@"MainScreen" bundle:nil];
+    mainScreen.m_nHomeType = 0;
+    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    delegate.window.rootViewController = mainScreen;
+}
+
+- (IBAction)favoriteJobsButtonpressed:(id)sender
+{
+
+    NSLog(@"favoriteJobs button pressed");
+    MainScreen *mainScreen = [[MainScreen alloc] initWithNibName:@"MainScreen" bundle:nil];
+    mainScreen.m_nHomeType = 1;
+    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    delegate.window.rootViewController = mainScreen;
     
     
-    
+}
+
+- (IBAction)upcomingEventsButtonpressed:(id)sender
+{
+    NSLog(@"upcomingEvents button pressed");
+    MainScreen *mainScreen = [[MainScreen alloc] initWithNibName:@"MainScreen" bundle:nil];
+    mainScreen.m_nHomeType = 2;
+    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    delegate.window.rootViewController = mainScreen;
+}
+
+- (IBAction)myProfileButtonpressed:(id)sender
+{
+    NSLog(@"myProfile button pressed");
+    MainScreen *mainScreen = [[MainScreen alloc] initWithNibName:@"MainScreen" bundle:nil];
+    mainScreen.m_nHomeType = 3;
+    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    delegate.window.rootViewController = mainScreen;
+}
+
+- (IBAction) logoutButtonPressed: (id) sender 
+{
+     AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    LoginVC *loginVC = [[LoginVC alloc] initWithNibName:@"LoginVC" bundle:nil];
+    delegate.viewController = [[ViewController alloc] initWithRootViewController:loginVC];
+    delegate.window.rootViewController = delegate.viewController;
+    [[NSUserDefaults standardUserDefaults] setValue:@"" forKey:User_Name_Key_For_User_Defaults];
+    [[NSUserDefaults standardUserDefaults] setValue:@"" forKey:Password_Key_For_User_Defaults];
+}
+
+#pragma mark - ADView Banner
+- (void)bannerViewDidLoadAd:(ADBannerView *)banner {
+    [banner setFrame:CGRectMake(0, 0, 320, 50)];
 }
 
 @end

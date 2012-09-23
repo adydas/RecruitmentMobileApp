@@ -13,15 +13,42 @@
 #import "SUtils.h"
 
 @implementation EventsVC
+
+@synthesize m_bHome;
 @synthesize m_eventCell;
 @synthesize tableview, events;
+
+- (id)initWithNibNameHome:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil bHome: (BOOL) bHome {
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        m_bHome = bHome;
+        
+        UITabBarItem * tabtitle;
+        if (m_bHome == YES) {
+            tabtitle = [[UITabBarItem alloc] initWithTitle: @"Home"
+                                                     image: [UIImage imageNamed:Home_tab_Image] //or your icon 
+                                                       tag: 0];
+            
+            [self setTabBarItem: tabtitle];
+            
+            [self.tabBarController setHidesBottomBarWhenPushed: NO];
+            
+        } else {
+            tabtitle = [[UITabBarItem alloc] initWithTitle: @"Events" image: [UIImage imageNamed:Events_tab_Image] tag: 0];
+            
+        }        
+        [self setTabBarItem: tabtitle];
+        [tabtitle release];
+        
+    }
+    return self;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         UITabBarItem * tabtitle = [[UITabBarItem alloc] initWithTitle: @"Events" image: [UIImage imageNamed:Events_tab_Image] tag: 0];
-        
         [self setTabBarItem: tabtitle];
         [tabtitle release];
     }

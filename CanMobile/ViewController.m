@@ -21,7 +21,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
+	self.navigationController.navigationBarHidden = YES;
 
 }
 

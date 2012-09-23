@@ -15,17 +15,45 @@
 #import "SUtils.h"
 
 @implementation JobsVC
+@synthesize m_searchBar;
+@synthesize m_bHome;
 @synthesize m_JobListCell;
 @synthesize keywordSearch,tableview, jobs;
+
+- (id)initWithNibNameHome:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil bHome: (BOOL) bHome {
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        m_bHome = bHome;
+        
+        UITabBarItem * tabtitle;
+        if (m_bHome == YES) {
+            tabtitle = [[UITabBarItem alloc] initWithTitle: @"Home"
+                                                     image: [UIImage imageNamed:Home_tab_Image] //or your icon 
+                                                       tag: 0];
+            
+            [self setTabBarItem: tabtitle];
+            
+            [self.tabBarController setHidesBottomBarWhenPushed: NO];
+            
+        } else {
+            tabtitle = [[UITabBarItem alloc] initWithTitle: @"Jobs"
+                                                     image: [UIImage imageNamed:Jobs_tab_Image] //or your icon 
+                                                       tag: 0];   
+        }        
+        [self setTabBarItem: tabtitle];
+        [tabtitle release];
+        
+    }
+    return self;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         UITabBarItem * tabtitle = [[UITabBarItem alloc] initWithTitle: @"Jobs"
-                                                                image: [UIImage imageNamed:Jobs_tab_Image] //or your icon 
-                                                                  tag: 0];
-        
+                                                     image: [UIImage imageNamed:Jobs_tab_Image] //or your icon 
+                                                       tag: 0];
         [self setTabBarItem: tabtitle];
         [tabtitle release];
 
@@ -50,6 +78,7 @@
         
     [self getJobsList];
         
+    /*
     UILabel *topLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, 300, 30)];
     topLabel.textColor = [UIColor whiteColor];
     topLabel.backgroundColor = [UIColor clearColor];
@@ -57,12 +86,16 @@
     topLabel.text = Navigation_Bar_Title_Text;
     self.navigationItem.titleView = topLabel;
     [topLabel release];
+     */
+    
+    [self.navigationController setNavigationBarHidden: YES];
 
 }
 
 - (void)viewDidUnload
 {
     [self setM_JobListCell:nil];
+    [self setM_searchBar:nil];
     [super viewDidUnload];
     self.keywordSearch = nil;
     self.tableview     = nil;
@@ -81,6 +114,7 @@
     [self.tableview release];
     [self.jobs release];
     [m_JobListCell release];
+    [m_searchBar release];
     [super dealloc];
 }
 
@@ -149,7 +183,7 @@
 - (IBAction) detailDiscolosureIndicatorSelected: (id) sender
 {
     JobDetailVC *jobDetailVC = [[JobDetailVC alloc] initWithNibName:@"JobDetailVC" bundle:nil];
-        jobDetailVC.jobBO = [self.jobs objectAtIndex:[sender tag]];
+    jobDetailVC.jobBO = [self.jobs objectAtIndex:[sender tag]];
     NSLog(@"tag %d",[ sender tag]);
     [self.navigationController pushViewController:jobDetailVC animated:YES];
 
@@ -161,7 +195,7 @@
 {
     JobApplyVC *jobApplyVC = [[JobApplyVC alloc] initWithNibName:@"JobApplyVC" bundle:nil];
     JobBO *jobBO = [self.jobs objectAtIndex:[sender tag]];
-    jobApplyVC.applyUrl = jobBO.jobApplyUrl;
+    jobApplyVC.jobBO = jobBO;
     [self.navigationController pushViewController:jobApplyVC animated:YES];
     
     [jobApplyVC release];

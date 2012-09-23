@@ -79,7 +79,6 @@
 {
     JobApplyVC *jobApplyVC = [[JobApplyVC alloc] initWithNibName:@"JobApplyVC" bundle:nil];
 
-    jobApplyVC.applyUrl = jobBO.jobApplyUrl;
     [self.navigationController pushViewController:jobApplyVC animated:YES];
     
     [jobApplyVC release];

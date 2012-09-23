@@ -22,12 +22,15 @@
     IBOutlet UIActivityIndicatorView *activityView;
 }
 
+@property (nonatomic) BOOL  m_bHome;
+
 @property (nonatomic, retain) IBOutlet UITableView *tableview;
 @property (nonatomic, retain)   NSMutableArray *events;
 @property (retain, nonatomic) IBOutlet EventListCell *m_eventCell;
 
 - (void) getEventsList;
 - (void) initDarkView;
+- (id)initWithNibNameHome:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil bHome: (BOOL) bHome;
 
 - (IBAction) detailDiscolosureIndicatorSelected: (id) sender;
 

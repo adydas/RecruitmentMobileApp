@@ -13,6 +13,7 @@
 #import "JobApplyVC.h"
 
 @implementation FavoriteJobsVC
+@synthesize m_bHome;
 @synthesize m_favJobListCell;
 @synthesize tableview, favoriteJobs;
 
@@ -20,7 +21,20 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        UITabBarItem * tabtitle;
+       
+        tabtitle = [[UITabBarItem alloc] initWithTitle: @"Home"
+                                                     image: [UIImage imageNamed:Home_tab_Image] //or your icon 
+                                                       tag: 0];
+            
+        [self setTabBarItem: tabtitle];
+        
+        [self.tabBarController setHidesBottomBarWhenPushed: NO];
+            
+        [self setTabBarItem: tabtitle];
+        [tabtitle release];
+
+        
     }
     return self;
 }
@@ -117,7 +131,7 @@
 {
     JobApplyVC *jobApplyVC = [[JobApplyVC alloc] initWithNibName:@"JobApplyVC" bundle:nil];
     JobBO *jobBO = [self.favoriteJobs objectAtIndex:[sender tag]];
-    jobApplyVC.applyUrl = jobBO.jobApplyUrl;
+    jobApplyVC.jobBO = jobBO;
     [self.navigationController pushViewController:jobApplyVC animated:YES];
     
     [jobApplyVC release];

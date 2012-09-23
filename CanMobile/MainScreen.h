@@ -7,10 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <iAd/ADBannerView.h>
 
-@interface MainScreen : UITabBarController{
+@interface MainScreen : UITabBarController <ADBannerViewDelegate>{
     
 }
+
+@property (nonatomic, retain) ADBannerView *bannerView;
+@property (nonatomic) NSInteger m_nHomeType;
 
 @property (nonatomic, retain) NSString *name;
 

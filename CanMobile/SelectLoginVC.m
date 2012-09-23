@@ -21,23 +21,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        UIImageView *homeImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:Login_Home_Icon]];
-        homeImageView.frame = CGRectMake(-70, -10, 16, 16);
-        
-        CGRect frame = CGRectMake(-80, -25, 200, 44);
-        UILabel *label = [[[UILabel alloc] initWithFrame:frame] autorelease];
-        [label setBackgroundColor:[UIColor clearColor]];
-        label.font = [UIFont boldSystemFontOfSize: 20.0];
-        label.shadowColor = [UIColor colorWithWhite:0.0 alpha:1];
-        label.textAlignment = UITextAlignmentCenter;
-        label.textColor = [UIColor whiteColor];
-        label.text = Login_Navigation_Bar_Title_Text;
-        
-        UIView *view = [[UIView alloc] initWithFrame:self.navigationController.navigationBar.frame];
-        view.backgroundColor = [UIColor yellowColor];
-        [view addSubview:homeImageView];
-        [view addSubview:label];
-        self.navigationItem.titleView = view;
+        self.navigationController.navigationBarHidden = YES;
     }
     return self;
 }

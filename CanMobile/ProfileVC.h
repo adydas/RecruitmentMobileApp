@@ -14,7 +14,10 @@
     IBOutlet UIImageView *qRCodeImageView;
 }
 
+@property (nonatomic) BOOL  m_bHome;
 @property (nonatomic, retain) IBOutlet UIButton *accountInfoButton;
+
+- (id)initWithNibNameHome:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil bHome: (BOOL) bHome;
 
 - (IBAction)accountInfoButtonPressed:(id)sender;
 

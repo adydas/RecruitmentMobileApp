@@ -10,19 +10,35 @@
 #import "NetworkController.h"
 
 @implementation ProfileVC
+
+@synthesize m_bHome;
 @synthesize accountInfoButton;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+
+- (id)initWithNibNameHome:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil bHome: (BOOL) bHome {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        [super viewDidLoad];
-        UITabBarItem * tabtitle = [[UITabBarItem alloc] initWithTitle: @"Profile"
-                                                                image: [UIImage imageNamed:@"profile.png"] 
-                                                                  tag: 0];
+        m_bHome = bHome;
         
+        UITabBarItem * tabtitle;
+        if (m_bHome == YES) {
+            tabtitle = [[UITabBarItem alloc] initWithTitle: @"Home"
+                                                     image: [UIImage imageNamed:Home_tab_Image] //or your icon 
+                                                       tag: 0];
+            
+            [self setTabBarItem: tabtitle];
+            
+            [self.tabBarController setHidesBottomBarWhenPushed: NO];
+            
+        } else {
+            tabtitle = [[UITabBarItem alloc] initWithTitle: @"Profile"
+                                                     image: [UIImage imageNamed:@"profile.png"] 
+                                                       tag: 0];
+        }
+
         [self setTabBarItem: tabtitle];
         [tabtitle release];
+        
         UILabel *topLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, 300, 30)];
         topLabel.textColor = [UIColor whiteColor];
         topLabel.backgroundColor = [UIColor clearColor];
@@ -30,9 +46,29 @@
         topLabel.text = @"eRecruiting from Experience.com";
         self.navigationItem.titleView = topLabel ;
         [topLabel release];
-//        UINavigationItem* item = [[UINavigationItem alloc] initWithTitle:@"title text"];
-//        [self.navigationController.navigationBar pushNavigationItem:item animated:YES];
-//        [item release];
+        
+    }
+    return self;
+}
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        [super viewDidLoad];
+        UITabBarItem * tabtitle = [[UITabBarItem alloc] initWithTitle: @"Profile"
+                                                     image: [UIImage imageNamed:@"profile.png"] 
+                                                       tag: 0];
+        [self setTabBarItem: tabtitle];
+        [tabtitle release];
+        
+        UILabel *topLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, 300, 30)];
+        topLabel.textColor = [UIColor whiteColor];
+        topLabel.backgroundColor = [UIColor clearColor];
+        topLabel.font = [UIFont fontWithName:@"TrebuchetMS-Bold" size:15.0f];
+        topLabel.text = @"eRecruiting from Experience.com";
+        self.navigationItem.titleView = topLabel ;
+        [topLabel release];
 
     }
     return self;

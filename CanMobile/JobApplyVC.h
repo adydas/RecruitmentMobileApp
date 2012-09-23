@@ -7,17 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JobBO.h"
 
 @interface JobApplyVC : UIViewController
 {
     IBOutlet UIView *darkView;
     IBOutlet UIActivityIndicatorView *activityView;
 }
-@property (nonatomic, retain) NSString *applyUrl;
+
+@property (nonatomic, retain) JobBO *jobBO;
 
 @property (retain, nonatomic) IBOutlet UILabel *m_labelJobTitle;
 @property (retain, nonatomic) IBOutlet UILabel *m_labelJobDesc;
 @property (retain, nonatomic) IBOutlet UILabel *m_labelLocation;
+@property (retain, nonatomic) IBOutlet UITextView *m_textCover;
 
 
 - (IBAction)onClickChooseResumeBtn:(id)sender;

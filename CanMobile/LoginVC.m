@@ -11,6 +11,7 @@
 #import "AppDelegate.h"
 #import "NetworkController.h"
 #import "SUtils.h"
+#import "HomeVC.h"
 
 @implementation LoginVC
 @synthesize username, password;
@@ -19,6 +20,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        /*
         UIImageView *homeImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:Login_Home_Icon]];
         homeImageView.frame = CGRectMake(-70, -10, 16, 16);
         
@@ -36,6 +38,7 @@
         [view addSubview:homeImageView];
         [view addSubview:label];
         self.navigationItem.titleView = view;
+         */
     }
     return self;
 }
@@ -127,10 +130,16 @@
         else
         {
             [[NSUserDefaults standardUserDefaults] setObject:usernameString forKey:User_First_And_Last_Name];
+            
+            UIViewController *homeViewCtrl = [[HomeVC alloc] initWithNibName:@"HomeVC" 
+                                                                         bundle:nil];
+            [self.navigationController pushViewController: homeViewCtrl animated: YES];
+            [homeViewCtrl release];
+            /*
             MainScreen *mainScreen = [[MainScreen alloc] initWithNibName:@"MainScreen" bundle:nil];
             AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
             delegate.window.rootViewController = mainScreen;
-
+            */
             
             [self performSelectorOnMainThread:@selector(removeOverLay:) withObject:usernameString waitUntilDone:NO];
         }

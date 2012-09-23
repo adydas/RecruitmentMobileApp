@@ -29,8 +29,8 @@
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
     
-    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:Top_Bar] 
-                                       forBarMetrics:UIBarMetricsDefault];
+    //[[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:Top_Bar] 
+     //                                  forBarMetrics:UIBarMetricsDefault];
     UIImage *backButton = [[UIImage imageNamed:Back_Button_Up] 
                                                 resizableImageWithCapInsets:UIEdgeInsetsMake(0.0f, 12.0f, 0.0f, 12.0f)];
     [[UIBarButtonItem appearance] setBackButtonBackgroundImage:backButton 
@@ -40,9 +40,8 @@
     [self initDarkView];
     
     SelectLoginVC *selectLoginVC = [[SelectLoginVC alloc] initWithNibName:@"SelectLoginVC" bundle:nil];
-
-   // LoginVC *loginVC = [[LoginVC alloc] initWithNibName:@"LoginVC" bundle:nil];
     self.viewController = [[ViewController alloc] initWithRootViewController:selectLoginVC];
+    [self.viewController setNavigationBarHidden: YES];
     self.window.rootViewController = self.viewController;
     
     

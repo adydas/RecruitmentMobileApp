@@ -13,6 +13,7 @@
     IBOutlet UIActivityIndicatorView *activityView;
     IBOutlet UIView *darkView;
 }
+
 @property (nonatomic, retain) IBOutlet UITextField *username;
 @property (nonatomic, retain) IBOutlet UITextField *password;
 

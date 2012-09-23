@@ -15,6 +15,7 @@
     IBOutlet UIActivityIndicatorView *activityView;
 }
 
+@property (nonatomic) BOOL  m_bHome;
 @property (retain, nonatomic) IBOutlet FavJobListCell *m_favJobListCell;
 @property (nonatomic, retain) IBOutlet UITableView *tableview;
 @property (nonatomic, retain) NSMutableArray *favoriteJobs;

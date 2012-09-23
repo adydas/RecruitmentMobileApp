@@ -44,7 +44,7 @@
 							<object class="IBUIImageView" id="1063719739">
 								<reference key="NSNextResponder" ref="690069490"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrameSize">{300, 54}</string>
+								<string key="NSFrame">{{10, 3}, {300, 54}}</string>
 								<reference key="NSSuperview" ref="690069490"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="211828992"/>
@@ -59,7 +59,7 @@
 							<object class="IBUIImageView" id="211828992">
 								<reference key="NSNextResponder" ref="690069490"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{1, 1}, {298, 52}}</string>
+								<string key="NSFrame">{{11, 4}, {298, 52}}</string>
 								<reference key="NSSuperview" ref="690069490"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="441564573"/>
@@ -74,7 +74,7 @@
 							<object class="IBUILabel" id="441564573">
 								<reference key="NSNextResponder" ref="690069490"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{11, 8}, {211, 21}}</string>
+								<string key="NSFrame">{{21, 11}, {211, 21}}</string>
 								<reference key="NSSuperview" ref="690069490"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="569510582"/>
@@ -110,7 +110,7 @@
 							<object class="IBUILabel" id="569510582">
 								<reference key="NSNextResponder" ref="690069490"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{11, 25}, {211, 21}}</string>
+								<string key="NSFrame">{{21, 28}, {211, 21}}</string>
 								<reference key="NSSuperview" ref="690069490"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="169892193"/>
@@ -143,7 +143,7 @@
 							<object class="IBUIButton" id="169892193">
 								<reference key="NSNextResponder" ref="690069490"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{240, 20}, {20, 20}}</string>
+								<string key="NSFrame">{{250, 23}, {20, 20}}</string>
 								<reference key="NSSuperview" ref="690069490"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="170920476"/>
@@ -178,9 +178,10 @@
 							<object class="IBUIButton" id="170920476">
 								<reference key="NSNextResponder" ref="690069490"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{264, 19}, {20, 20}}</string>
+								<string key="NSFrame">{{274, 22}, {20, 20}}</string>
 								<reference key="NSSuperview" ref="690069490"/>
 								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -200,7 +201,7 @@
 								<reference key="IBUIFont" ref="865031735"/>
 							</object>
 						</array>
-						<string key="NSFrameSize">{300, 59}</string>
+						<string key="NSFrameSize">{320, 59}</string>
 						<reference key="NSSuperview" ref="516879557"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="1063719739"/>
@@ -216,7 +217,7 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 					</object>
 				</array>
-				<string key="NSFrameSize">{300, 60}</string>
+				<string key="NSFrameSize">{320, 60}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="690069490"/>
@@ -443,6 +444,7 @@
 						<string key="darkView">UIView</string>
 						<string key="keywordSearch">UITextField</string>
 						<string key="m_JobListCell">JobListCell</string>
+						<string key="m_searchBar">UISearchBar</string>
 						<string key="tableview">UITableView</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
@@ -461,6 +463,10 @@
 						<object class="IBToOneOutletInfo" key="m_JobListCell">
 							<string key="name">m_JobListCell</string>
 							<string key="candidateClassName">JobListCell</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="m_searchBar">
+							<string key="name">m_searchBar</string>
+							<string key="candidateClassName">UISearchBar</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="tableview">
 							<string key="name">tableview</string>

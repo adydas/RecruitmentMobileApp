@@ -8,10 +8,13 @@
 
 #import "JobApplyVC.h"
 #import "AppDelegate.h"
+#import "QuartzCore/QuartzCore.h"
 
 @implementation JobApplyVC
 @synthesize m_labelLocation;
-@synthesize applyUrl;
+@synthesize m_textCover;
+
+@synthesize jobBO;
 @synthesize m_labelJobTitle;
 @synthesize m_labelJobDesc;
 
@@ -20,6 +23,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        jobBO = [[JobBO alloc] init];
     }
     return self;
 }
@@ -44,6 +48,17 @@
     topLabel.font = [UIFont fontWithName:Font_TrebuchetMS_Bold size:15.0f];
     topLabel.text = Navigation_Bar_Title_Text;
     self.navigationItem.titleView = topLabel ;
+    
+    m_textCover.layer.borderColor = [UIColor colorWithRed:133.0/255.0 green:133.0/255.0 blue:133/255.0 alpha:1.0].CGColor;
+    
+    m_textCover.layer.borderWidth = 2;
+    m_textCover.layer.cornerRadius = 10;
+    m_textCover.layer.masksToBounds = YES;
+    
+    [m_labelJobTitle setText: jobBO.jobTitle];
+    [m_labelJobDesc setText: [NSString stringWithFormat:@"%@ | %@", jobBO.employerName, jobBO.jobLocation]];
+    [m_labelLocation setText: jobBO.jobLocation];
+
 
 }
 
@@ -52,6 +67,9 @@
     [self setM_labelLocation:nil];
     [self setM_labelJobTitle:nil];
     [self setM_labelJobDesc:nil];
+    [self setM_textCover:nil];
+    
+    self.jobBO                = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -73,6 +91,8 @@
     [m_labelLocation release];
     [m_labelJobTitle release];
     [m_labelJobDesc release];
+    [m_textCover release];
+    [jobBO release];
     [super dealloc];
 }
 

@@ -11,6 +11,10 @@
 		4F075590160B0DFA00FF48DA /* combobox_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F07558C160B0DFA00FF48DA /* combobox_selected@2x.png */; };
 		4F075591160B0DFA00FF48DA /* combobox.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F07558D160B0DFA00FF48DA /* combobox.png */; };
 		4F075592160B0DFA00FF48DA /* combobox@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F07558E160B0DFA00FF48DA /* combobox@2x.png */; };
+		4F0CD354160CC48700A4A194 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F0CD352160CC46200A4A194 /* iAd.framework */; };
+		4F0CD355160CC48700A4A194 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F0CD334160B269E00A4A194 /* QuartzCore.framework */; };
+		4F0CD358160CC56A00A4A194 /* textfield_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F0CD356160CC56A00A4A194 /* textfield_bg.png */; };
+		4F0CD359160CC56A00A4A194 /* textfield_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F0CD357160CC56A00A4A194 /* textfield_bg@2x.png */; };
 		4F3B475215FD7E6200E20F94 /* SelectLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F3B475015FD7E6200E20F94 /* SelectLoginVC.m */; };
 		4F3B475315FD7E6200E20F94 /* SelectLoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F3B475115FD7E6200E20F94 /* SelectLoginVC.xib */; };
 		4F3B4776160183AF00E20F94 /* EventListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F3B4775160183AF00E20F94 /* EventListCell.m */; };
@@ -113,6 +117,10 @@
 		4F07558C160B0DFA00FF48DA /* combobox_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "combobox_selected@2x.png"; sourceTree = "<group>"; };
 		4F07558D160B0DFA00FF48DA /* combobox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = combobox.png; sourceTree = "<group>"; };
 		4F07558E160B0DFA00FF48DA /* combobox@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "combobox@2x.png"; sourceTree = "<group>"; };
+		4F0CD334160B269E00A4A194 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		4F0CD352160CC46200A4A194 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
+		4F0CD356160CC56A00A4A194 /* textfield_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = textfield_bg.png; sourceTree = "<group>"; };
+		4F0CD357160CC56A00A4A194 /* textfield_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "textfield_bg@2x.png"; sourceTree = "<group>"; };
 		4F3B474F15FD7E6200E20F94 /* SelectLoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectLoginVC.h; sourceTree = "<group>"; };
 		4F3B475015FD7E6200E20F94 /* SelectLoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectLoginVC.m; sourceTree = "<group>"; };
 		4F3B475115FD7E6200E20F94 /* SelectLoginVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectLoginVC.xib; sourceTree = "<group>"; };
@@ -251,6 +259,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4FFC110A15C262700036DC2B /* libz.1.2.5.dylib in Frameworks */,
+				4F0CD354160CC48700A4A194 /* iAd.framework in Frameworks */,
+				4F0CD355160CC48700A4A194 /* QuartzCore.framework in Frameworks */,
 				4F83E66C15C248D100C928D5 /* SystemConfiguration.framework in Frameworks */,
 				4F83E66A15C248C900C928D5 /* AVFoundation.framework in Frameworks */,
 				4F83E66815C247F400C928D5 /* MobileCoreServices.framework in Frameworks */,
@@ -404,6 +414,8 @@
 		4F8859DA15AC4BEF00AB3B2B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4F0CD352160CC46200A4A194 /* iAd.framework */,
+				4F0CD334160B269E00A4A194 /* QuartzCore.framework */,
 				4FFC110915C262700036DC2B /* libz.1.2.5.dylib */,
 				4F83E66B15C248D100C928D5 /* SystemConfiguration.framework */,
 				4F83E66915C248C900C928D5 /* AVFoundation.framework */,
@@ -456,6 +468,8 @@
 		4F8859F915AC4C7600AB3B2B /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				4F0CD356160CC56A00A4A194 /* textfield_bg.png */,
+				4F0CD357160CC56A00A4A194 /* textfield_bg@2x.png */,
 				4F825FEE15F892E9003D34AD /* btn_black_pressed.png */,
 				4F825FEF15F892E9003D34AD /* btn_black_pressed@2x.png */,
 				4F845F7E15CFA19400F6B4BE /* exp_logo@2x.png */,
@@ -713,6 +727,8 @@
 				4F075590160B0DFA00FF48DA /* combobox_selected@2x.png in Resources */,
 				4F075591160B0DFA00FF48DA /* combobox.png in Resources */,
 				4F075592160B0DFA00FF48DA /* combobox@2x.png in Resources */,
+				4F0CD358160CC56A00A4A194 /* textfield_bg.png in Resources */,
+				4F0CD359160CC56A00A4A194 /* textfield_bg@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

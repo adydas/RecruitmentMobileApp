@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <iAd/ADBannerView.h>
 
-@interface HomeVC : UIViewController
+@interface HomeVC : UIViewController <ADBannerViewDelegate>
 {
     UIBarButtonItem *logoutButton;
     IBOutlet UIView *darkView;
