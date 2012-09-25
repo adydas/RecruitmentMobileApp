@@ -20,5 +20,6 @@
 
 - (IBAction) jobApplyButtonPressed:(id)sender;
 - (IBAction) favoriteButtonPressed:(id)sender;
+- (IBAction) onClickNavBackBtn:(id)sender;
 
 @end

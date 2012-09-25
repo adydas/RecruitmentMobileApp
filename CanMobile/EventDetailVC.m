@@ -44,7 +44,7 @@
     
     eventNameLabel.text = eventBO.eventName;
     descriptionLabel.text = eventBO.eventDescription;
-        locationLabel.text = eventBO.eventlocation;
+    locationLabel.text = eventBO.eventlocation;
     dateLabel.text = eventBO.eventStartDate;
     timeLabel.text = eventBO.eventStartDate;
 }
@@ -53,7 +53,7 @@
 {
     [super viewDidUnload];
     self.eventNameLabel = nil;
-    self.descriptionLabel = nil; 
+    self.descriptionLabel = nil;
     self.locationLabel = nil; 
     self.dateLabel = nil;
     self.timeLabel = nil;

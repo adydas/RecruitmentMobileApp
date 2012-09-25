@@ -90,6 +90,8 @@
 		4F8859F215AC4BEF00AB3B2B /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F8859F015AC4BEF00AB3B2B /* ViewController.xib */; };
 		4F89FB2C15AEE8E900F503E1 /* ratestar.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F89FB2A15AEE8E800F503E1 /* ratestar.png */; };
 		4F89FB3115AEFDA300F503E1 /* top-bar-50%.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F89FB3015AEFDA300F503E1 /* top-bar-50%.png */; };
+		4F91EA541610F637002D5582 /* btn_back.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F91EA521610F637002D5582 /* btn_back.png */; };
+		4F91EA551610F637002D5582 /* btn_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F91EA531610F637002D5582 /* btn_back@2x.png */; };
 		4F9C611D15EFA54400EB6CA4 /* EventsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F9C611C15EFA54400EB6CA4 /* EventsVC.xib */; };
 		4F9C615915F0BBED00EB6CA4 /* SUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F9C615815F0BBED00EB6CA4 /* SUtils.m */; };
 		4F9C617915F0BBFB00EB6CA4 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F9C615D15F0BBFB00EB6CA4 /* AFHTTPClient.m */; };
@@ -108,6 +110,8 @@
 		4F9C618815F0BC1D00EB6CA4 /* NetworkController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F9C618715F0BC1D00EB6CA4 /* NetworkController.m */; };
 		4F9C619E15F1C38700EB6CA4 /* JobListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F9C619D15F1C38700EB6CA4 /* JobListCell.m */; };
 		4F9C61A015F1C39700EB6CA4 /* JobListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F9C619F15F1C39700EB6CA4 /* JobListCell.xib */; };
+		4FDE217D16118DA60087278D /* nav.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FDE217B16118DA60087278D /* nav.png */; };
+		4FDE217E16118DA60087278D /* nav@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FDE217C16118DA60087278D /* nav@2x.png */; };
 		4FF1DB1715CFAA8F009D2CF9 /* beta@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FF1DB1615CFAA8F009D2CF9 /* beta@2x.png */; };
 		4FFC110A15C262700036DC2B /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FFC110915C262700036DC2B /* libz.1.2.5.dylib */; };
 /* End PBXBuildFile section */
@@ -214,6 +218,8 @@
 		4F8859F115AC4BEF00AB3B2B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
 		4F89FB2A15AEE8E800F503E1 /* ratestar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ratestar.png; sourceTree = "<group>"; };
 		4F89FB3015AEFDA300F503E1 /* top-bar-50%.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "top-bar-50%.png"; sourceTree = "<group>"; };
+		4F91EA521610F637002D5582 /* btn_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_back.png; sourceTree = "<group>"; };
+		4F91EA531610F637002D5582 /* btn_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_back@2x.png"; sourceTree = "<group>"; };
 		4F9C611C15EFA54400EB6CA4 /* EventsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventsVC.xib; sourceTree = "<group>"; };
 		4F9C615715F0BBED00EB6CA4 /* SUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUtils.h; sourceTree = "<group>"; };
 		4F9C615815F0BBED00EB6CA4 /* SUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUtils.m; sourceTree = "<group>"; };
@@ -249,6 +255,8 @@
 		4F9C619C15F1C38700EB6CA4 /* JobListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobListCell.h; sourceTree = "<group>"; };
 		4F9C619D15F1C38700EB6CA4 /* JobListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobListCell.m; sourceTree = "<group>"; };
 		4F9C619F15F1C39700EB6CA4 /* JobListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JobListCell.xib; sourceTree = "<group>"; };
+		4FDE217B16118DA60087278D /* nav.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav.png; sourceTree = "<group>"; };
+		4FDE217C16118DA60087278D /* nav@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav@2x.png"; sourceTree = "<group>"; };
 		4FF1DB1615CFAA8F009D2CF9 /* beta@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "beta@2x.png"; sourceTree = "<group>"; };
 		4FFC110915C262700036DC2B /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -468,6 +476,10 @@
 		4F8859F915AC4C7600AB3B2B /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				4FDE217B16118DA60087278D /* nav.png */,
+				4FDE217C16118DA60087278D /* nav@2x.png */,
+				4F91EA521610F637002D5582 /* btn_back.png */,
+				4F91EA531610F637002D5582 /* btn_back@2x.png */,
 				4F0CD356160CC56A00A4A194 /* textfield_bg.png */,
 				4F0CD357160CC56A00A4A194 /* textfield_bg@2x.png */,
 				4F825FEE15F892E9003D34AD /* btn_black_pressed.png */,
@@ -729,6 +741,10 @@
 				4F075592160B0DFA00FF48DA /* combobox@2x.png in Resources */,
 				4F0CD358160CC56A00A4A194 /* textfield_bg.png in Resources */,
 				4F0CD359160CC56A00A4A194 /* textfield_bg@2x.png in Resources */,
+				4F91EA541610F637002D5582 /* btn_back.png in Resources */,
+				4F91EA551610F637002D5582 /* btn_back@2x.png in Resources */,
+				4FDE217D16118DA60087278D /* nav.png in Resources */,
+				4FDE217E16118DA60087278D /* nav@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

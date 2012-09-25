@@ -40,9 +40,10 @@
     topLabel.backgroundColor = [UIColor clearColor];
     topLabel.font = [UIFont fontWithName:Font_TrebuchetMS_Bold size:15.0f];
     topLabel.text = Navigation_Bar_Title_Text;
-    self.navigationItem.titleView = topLabel ;
+    self.navigationItem.titleView = topLabel;
     [topLabel release];
     
+//    self.navigationController
     
     jobNameLabel.text = jobBO.jobTitle;
     jobNameDetailedLabel.text = [NSString stringWithFormat:@"%@ | %@", jobBO.employerName, jobBO.jobLocation];
@@ -87,6 +88,10 @@
 - (IBAction)favoriteButtonPressed:(id)sender
 {
 
+}
+
+- (IBAction)onClickNavBackBtn:(id)sender {
+    [self.navigationController popViewControllerAnimated: YES];
 }
 
 @end

@@ -124,8 +124,6 @@
     [self.navigationController pushViewController:jobDetailVC animated:YES];
     
     [jobDetailVC release];
-    
-    
 }
 - (IBAction) applyForJobButtonSelected: (id) sender
 {

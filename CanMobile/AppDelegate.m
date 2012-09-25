@@ -31,11 +31,6 @@
     
     //[[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:Top_Bar] 
      //                                  forBarMetrics:UIBarMetricsDefault];
-    UIImage *backButton = [[UIImage imageNamed:Back_Button_Up] 
-                                                resizableImageWithCapInsets:UIEdgeInsetsMake(0.0f, 12.0f, 0.0f, 12.0f)];
-    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:backButton 
-                                                          forState:UIControlStateNormal 
-                                                        barMetrics:UIBarMetricsDefault];
 
     [self initDarkView];
     

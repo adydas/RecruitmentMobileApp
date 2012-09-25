@@ -41,11 +41,13 @@
     [super viewDidLoad];
     
     
-    UIImage *backButton = [[UIImage imageNamed:Back_Button_Up] 
-                           resizableImageWithCapInsets:UIEdgeInsetsMake(0.0f, 12.0f, 0.0f, 12.0f)];
-    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:backButton 
-                                                      forState:UIControlStateNormal 
-                                                    barMetrics:UIBarMetricsLandscapePhone];
+   // UIImage *backButton = [[UIImage imageNamed:Back_Button_Up] 
+//                           resizableImageWithCapInsets:UIEdgeInsetsMake(0.0f, 12.0f, 0.0f, 12.0f)];
+//    [[UIBarButtonItem appearance] setFrame:CGRectMake(0, 50, 320, 44)];
+ //   [self.navigationController.navigationBar setFrame:CGRectMake(0, 50, 320, 44)];
+//    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:backButton 
+ //                                                     forState:UIControlStateNormal 
+//                                                    barMetrics:UIBarMetricsLandscapePhone];
     
     UIViewController *homeViewCtrl;
 
@@ -111,6 +113,10 @@
 #pragma mark - ADView Banner
 - (void)bannerViewDidLoadAd:(ADBannerView *)banner {
     [banner setFrame:CGRectMake(0, 20, 320, 50)];
+}
+
+- (void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error {
+    NSLog(@"error!!");
 }
 
 @end

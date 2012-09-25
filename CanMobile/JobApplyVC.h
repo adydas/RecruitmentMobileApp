@@ -25,6 +25,7 @@
 
 - (IBAction)onClickChooseResumeBtn:(id)sender;
 - (IBAction)onClickApplyBtn:(id)sender;
+- (IBAction)onClickNavBackBtn:(id)sender;
 
 
 @end

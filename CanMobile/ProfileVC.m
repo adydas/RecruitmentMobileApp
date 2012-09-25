@@ -44,7 +44,7 @@
         topLabel.backgroundColor = [UIColor clearColor];
         topLabel.font = [UIFont fontWithName:@"TrebuchetMS-Bold" size:15.0f];
         topLabel.text = @"eRecruiting from Experience.com";
-        self.navigationItem.titleView = topLabel ;
+        self.navigationItem.titleView = topLabel;
         [topLabel release];
         
     }

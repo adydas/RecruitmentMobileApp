@@ -105,5 +105,9 @@
     
 }
 
+- (IBAction)onClickNavBackBtn:(id)sender {
+    [self.navigationController popViewControllerAnimated: YES];
+}
+
 
 @end
