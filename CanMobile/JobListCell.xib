@@ -68,7 +68,7 @@
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<object class="NSCustomResource" key="IBUIImage">
 									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">li_bg.png</string>
+									<string key="NSResourceName">results_bg.png</string>
 								</object>
 							</object>
 							<object class="IBUILabel" id="441564573">
@@ -143,7 +143,7 @@
 							<object class="IBUIButton" id="169892193">
 								<reference key="NSNextResponder" ref="690069490"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{250, 23}, {20, 20}}</string>
+								<string key="NSFrame">{{250, 17}, {20, 25}}</string>
 								<reference key="NSSuperview" ref="690069490"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="170920476"/>
@@ -163,7 +163,7 @@
 								</object>
 								<object class="NSCustomResource" key="IBUINormalImage">
 									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">edit_icon_job.png</string>
+									<string key="NSResourceName">edit_icon.png</string>
 								</object>
 								<object class="IBUIFontDescription" key="IBUIFontDescription" id="795859194">
 									<int key="type">2</int>
@@ -178,7 +178,7 @@
 							<object class="IBUIButton" id="170920476">
 								<reference key="NSNextResponder" ref="690069490"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{274, 22}, {20, 20}}</string>
+								<string key="NSFrame">{{275, 16}, {27, 25}}</string>
 								<reference key="NSSuperview" ref="690069490"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView"/>
@@ -193,9 +193,13 @@
 									<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
 								</object>
 								<reference key="IBUINormalTitleShadowColor" ref="542515775"/>
+								<object class="NSCustomResource" key="IBUISelectedImage">
+									<string key="NSClassName">NSImage</string>
+									<string key="NSResourceName">icon_star_selected.png</string>
+								</object>
 								<object class="NSCustomResource" key="IBUINormalImage">
 									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">ratestar.png</string>
+									<string key="NSResourceName">icon_star.png</string>
 								</object>
 								<reference key="IBUIFontDescription" ref="795859194"/>
 								<reference key="IBUIFont" ref="865031735"/>
@@ -366,6 +370,7 @@
 				<string key="5.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="6.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="7.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<real value="2" key="7.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
@@ -419,7 +424,6 @@
 						<string key="addToFavoritesButtonpressed:">id</string>
 						<string key="applyForJobButtonSelected:">id</string>
 						<string key="detailDiscolosureIndicatorSelected:">id</string>
-						<string key="goButtonPressed:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
 						<object class="IBActionInfo" key="addToFavoritesButtonpressed:">
@@ -434,15 +438,10 @@
 							<string key="name">detailDiscolosureIndicatorSelected:</string>
 							<string key="candidateClassName">id</string>
 						</object>
-						<object class="IBActionInfo" key="goButtonPressed:">
-							<string key="name">goButtonPressed:</string>
-							<string key="candidateClassName">id</string>
-						</object>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="activityView">UIActivityIndicatorView</string>
 						<string key="darkView">UIView</string>
-						<string key="keywordSearch">UITextField</string>
 						<string key="m_JobListCell">JobListCell</string>
 						<string key="m_searchBar">UISearchBar</string>
 						<string key="tableview">UITableView</string>
@@ -455,10 +454,6 @@
 						<object class="IBToOneOutletInfo" key="darkView">
 							<string key="name">darkView</string>
 							<string key="candidateClassName">UIView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="keywordSearch">
-							<string key="name">keywordSearch</string>
-							<string key="candidateClassName">UITextField</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="m_JobListCell">
 							<string key="name">m_JobListCell</string>
@@ -489,9 +484,10 @@
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
-			<string key="edit_icon_job.png">{16, 16}</string>
-			<string key="li_bg.png">{1, 185}</string>
-			<string key="ratestar.png">{37, 36}</string>
+			<string key="edit_icon.png">{24, 30}</string>
+			<string key="icon_star.png">{33, 31}</string>
+			<string key="icon_star_selected.png">{33, 31}</string>
+			<string key="results_bg.png">{610, 110}</string>
 		</dictionary>
 		<string key="IBCocoaTouchPluginVersion">1181</string>
 	</data>

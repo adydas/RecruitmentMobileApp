@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "JobsVC.h"
 #import "EventListCell.h"
+#import "CheckEventListCell.h"
 
 @interface EventsVC : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
@@ -27,12 +28,22 @@
 @property (nonatomic, retain) IBOutlet UITableView *tableview;
 @property (nonatomic, retain)   NSMutableArray *events;
 @property (retain, nonatomic) IBOutlet EventListCell *m_eventCell;
+@property (retain, nonatomic) IBOutlet CheckEventListCell *m_checkeventCell;
+@property (retain, nonatomic) IBOutlet UISegmentedControl *m_segCtrl;
+@property (retain, nonatomic) IBOutlet UISearchBar *m_searchBar;
+@property (retain, nonatomic) IBOutlet UILabel *m_labelUnavailable;
+@property (retain, nonatomic) IBOutlet UIButton *m_btnCheckin;
+
+
 
 - (void) getEventsList;
 - (void) initDarkView;
 - (id)initWithNibNameHome:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil bHome: (BOOL) bHome;
 
 - (IBAction) detailDiscolosureIndicatorSelected: (id) sender;
+- (IBAction) onSegValueChanged:(id)sender;
+
+
 
 
 @end

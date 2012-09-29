@@ -34,15 +34,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    UILabel *topLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, 300, 30)];
-    topLabel.textColor = [UIColor whiteColor];
-    topLabel.backgroundColor = [UIColor clearColor];
-    topLabel.font = [UIFont fontWithName:Font_TrebuchetMS_Bold size:15.0f];
-    topLabel.text = Navigation_Bar_Title_Text;
-    self.navigationItem.titleView = topLabel;
-    [topLabel release];
-    
 //    self.navigationController
     
     jobNameLabel.text = jobBO.jobTitle;

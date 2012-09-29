@@ -9,6 +9,7 @@
 #import "EventDetailVC.h"
 
 @implementation EventDetailVC
+@synthesize eventDateLabel;
 @synthesize eventNameLabel, descriptionLabel, locationLabel, dateLabel, timeLabel, eventBO;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -41,16 +42,23 @@
     self.navigationItem.titleView = topLabel;
     [topLabel release];
     
-    
     eventNameLabel.text = eventBO.eventName;
     descriptionLabel.text = eventBO.eventDescription;
     locationLabel.text = eventBO.eventlocation;
     dateLabel.text = eventBO.eventStartDate;
-    timeLabel.text = eventBO.eventStartDate;
+    timeLabel.text = [NSString stringWithFormat:@"%@ to %@", eventBO.eventStartTime, eventBO.eventEndTime];
+    
+    if ([eventBO.eventStartDate isEqualToString: eventBO.eventEndDate] == YES) {
+        eventDateLabel.text = [NSString stringWithFormat:@"%@, %@-%@",eventBO.eventStartDate, eventBO.eventStartTime, eventBO.eventEndTime];        
+    } else {
+        eventDateLabel.text = [NSString stringWithFormat:@"%@-%@",eventBO.eventStartDate, eventBO.eventEndDate];        
+    }
+
 }
 
 - (void)viewDidUnload
 {
+    [self setEventDateLabel:nil];
     [super viewDidUnload];
     self.eventNameLabel = nil;
     self.descriptionLabel = nil;
@@ -73,20 +81,12 @@
     [self.locationLabel release]; 
     [self.dateLabel release]; 
     [self.timeLabel release];
+    [eventDateLabel release];
     [super dealloc];
 }
 
-
-#pragma mark - View IBActions
-
-
--(IBAction)editButtonPressed:(id)sender
-{
-
+#pragma mark - Actions
+- (IBAction)onClickNavBackBtn:(id)sender {
+    [self.navigationController popViewControllerAnimated: YES];
 }
--(IBAction)favoriteButtonPressed:(id)sender
-{
-
-}
-
 @end

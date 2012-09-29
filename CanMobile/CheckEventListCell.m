@@ -1,15 +1,16 @@
 //
-//  EventListCell.m
+//  CheckEventListCell.m
 //  CanMobile
 //
-//  Created by Optiplex790 on 9/13/12.
+//  Created by Optiplex790 on 9/29/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "EventListCell.h"
+#import "CheckEventListCell.h"
 
-@implementation EventListCell
-@synthesize m_labelName;
+@implementation CheckEventListCell
+@synthesize m_labelTitle;
+@synthesize m_labelLocation;
 @synthesize m_labelDate;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -29,7 +30,8 @@
 }
 
 - (void)dealloc {
-    [m_labelName release];
+    [m_labelTitle release];
+    [m_labelLocation release];
     [m_labelDate release];
     [super dealloc];
 }

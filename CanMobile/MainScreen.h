@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <iAd/ADBannerView.h>
 
-@interface MainScreen : UITabBarController <ADBannerViewDelegate>{
+@interface MainScreen : UITabBarController <ADBannerViewDelegate, UITabBarDelegate>{
     
 }
 

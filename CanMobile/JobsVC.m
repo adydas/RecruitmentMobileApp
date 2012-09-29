@@ -18,7 +18,7 @@
 @synthesize m_searchBar;
 @synthesize m_bHome;
 @synthesize m_JobListCell;
-@synthesize keywordSearch,tableview, jobs;
+@synthesize tableview, jobs;
 
 - (id)initWithNibNameHome:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil bHome: (BOOL) bHome {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -77,17 +77,6 @@
     [super viewDidLoad];
         
     [self getJobsList];
-        
-    /*
-    UILabel *topLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, 300, 30)];
-    topLabel.textColor = [UIColor whiteColor];
-    topLabel.backgroundColor = [UIColor clearColor];
-    topLabel.font = [UIFont fontWithName:Font_TrebuchetMS_Bold size:15.0f];
-    topLabel.text = Navigation_Bar_Title_Text;
-    self.navigationItem.titleView = topLabel;
-    [topLabel release];
-     */
-    
     [self.navigationController setNavigationBarHidden: YES];
 
 }
@@ -97,7 +86,6 @@
     [self setM_JobListCell:nil];
     [self setM_searchBar:nil];
     [super viewDidUnload];
-    self.keywordSearch = nil;
     self.tableview     = nil;
     self.jobs          = nil;
 }
@@ -110,7 +98,6 @@
 
 - (void) dealloc 
 {
-    [self.keywordSearch release];
     [self.tableview release];
     [self.jobs release];
     [m_JobListCell release];
@@ -161,30 +148,11 @@
 
 
 #pragma mark - IBActions
-- (IBAction)goButtonPressed:(id)sender
-{
-    NSString *searchKeyword = keywordSearch.text;
-    NSLog(@"%@", searchKeyword);
-    
-    if (searchKeyword != nil || searchKeyword != (id)[NSNull null]) {
-        [[NetworkController singleton] getSearchedJobsFromServer:searchKeyword andCallBack:^(int result, NSMutableArray *jobs1){
-            if(result == REQUEST_SUCCEEDED){
-                self.jobs  = jobs1;
-                [self.tableview reloadData];
-            }else{
-                NSLog(@"Error");
-            }
-        }];
-
-    }
-    
-}
-
 - (IBAction) detailDiscolosureIndicatorSelected: (id) sender
 {
     JobDetailVC *jobDetailVC = [[JobDetailVC alloc] initWithNibName:@"JobDetailVC" bundle:nil];
     jobDetailVC.jobBO = [self.jobs objectAtIndex:[sender tag]];
-    NSLog(@"tag %d",[ sender tag]);
+    NSLog(@"tag %d",[sender tag]);
     [self.navigationController pushViewController:jobDetailVC animated:YES];
 
     [jobDetailVC release];
@@ -255,6 +223,28 @@
 	[darkView removeFromSuperview];
     
     //[self.navigationController popViewControllerAnimated:YES];
+}
+
+#pragma mark - SearchBar Delegate
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    [m_searchBar resignFirstResponder];
+    
+    NSString *searchKeyword = m_searchBar.text;
+    NSLog(@"%@", searchKeyword);
+    
+    if (searchKeyword != nil || searchKeyword != (id)[NSNull null]) {
+        [[NetworkController singleton] getSearchedJobsFromServer:searchKeyword andCallBack:^(int result, NSMutableArray *jobs1){
+            if(result == REQUEST_SUCCEEDED){
+                self.jobs  = jobs1;
+                [self.tableview reloadData];
+            }else{
+                NSLog(@"Error");
+            }
+        }];
+        
+    }
+
 }
 
 @end

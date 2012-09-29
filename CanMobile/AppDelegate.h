@@ -16,6 +16,7 @@
 }
 
 @property (strong, nonatomic) UIWindow *window;
+@property (nonatomic)   NSInteger m_nHomeType;
 
 @property (strong, nonatomic) ViewController *viewController;
 

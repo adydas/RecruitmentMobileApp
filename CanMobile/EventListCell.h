@@ -13,7 +13,7 @@
 }
 
 @property (retain, nonatomic) IBOutlet UILabel *m_labelName;
-@property (retain, nonatomic) IBOutlet UIButton *m_btnCheckIn;
+@property (retain, nonatomic) IBOutlet UILabel *m_labelDate;
 
 
 @end

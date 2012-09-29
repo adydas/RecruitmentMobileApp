@@ -16,6 +16,7 @@
 
 @synthesize window = _window;
 @synthesize viewController = _viewController;
+@synthesize m_nHomeType;
 
 - (void)dealloc
 {

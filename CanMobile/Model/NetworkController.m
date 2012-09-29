@@ -495,6 +495,21 @@ NetworkController *singleton;
             eventBO.eventStartDate = @"";
         }
         
+        eventBO.eventEndDate   = [objDic valueForKey:Event_End_Date];
+        if (eventBO.eventEndDate == (id)[NSNull null]) {
+            eventBO.eventEndDate = @"";
+        }
+        
+        eventBO.eventStartTime   = [objDic valueForKey:Event_Start_Time];
+        if (eventBO.eventStartTime == (id)[NSNull null]) {
+            eventBO.eventStartTime = @"";
+        }
+        
+        eventBO.eventEndTime   = [objDic valueForKey:Event_End_Time];
+        if (eventBO.eventEndTime == (id)[NSNull null]) {
+            eventBO.eventEndTime = @"";
+        }
+        
         [eventsArray addObject:eventBO];
     }
     

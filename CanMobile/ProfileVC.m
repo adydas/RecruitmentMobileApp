@@ -143,17 +143,17 @@
 
 -(IBAction)accountInfoButtonPressed:(id)sender
 {
-//    if ([qRCodeImageView isHidden]) {
-//        
-//        [qRCodeImageView setHidden:NO];
-//        [accountInfoButton setTitle:@"Display my personal QR code" forState:UIControlStateNormal];
-//    } 
-//    else
-//    {
-//        [qRCodeImageView setHidden:YES];
-//        [accountInfoButton setTitle:@"Display my account information" forState:UIControlStateNormal];
-//
-//    }
+    if ([qRCodeImageView isHidden]) {
+        
+        [qRCodeImageView setHidden:NO];
+        [accountInfoButton setTitle:@"Display my personal QR code" forState:UIControlStateNormal];
+    } 
+    else
+    {
+        [qRCodeImageView setHidden:YES];
+        [accountInfoButton setTitle:@"Display my account information" forState:UIControlStateNormal];
+
+    }
 
 }
 

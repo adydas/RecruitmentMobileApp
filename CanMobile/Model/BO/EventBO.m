@@ -9,7 +9,7 @@
 #import "EventBO.h"
 
 @implementation EventBO
-@synthesize eventId, eventName, eventDescription, eventlocation, eventStartDate, eventEndDate, rsvpDate, eventUrl;
+@synthesize eventId, eventName, eventDescription, eventlocation, eventStartDate, eventEndDate, rsvpDate, eventStartTime, eventEndTime, eventUrl;
 
 -(id) init
 {
@@ -17,10 +17,12 @@
         self.eventId = [NSString stringWithString:@""];
         self.eventName = [NSString stringWithString:@""];
         self.eventDescription = [NSString stringWithString:@""];
-        self. eventlocation = [NSString stringWithString:@""];
+        self.eventlocation = [NSString stringWithString:@""];
         self.eventStartDate = [NSString stringWithString:@""];
         self.eventEndDate = [NSString stringWithString:@""];
         self.rsvpDate = [NSString stringWithString:@""];
+        self.eventStartTime = [NSString stringWithString:@""];
+        self.eventEndTime = [NSString stringWithString:@""];
         self.eventUrl = [NSString stringWithString:@""];
         
     }

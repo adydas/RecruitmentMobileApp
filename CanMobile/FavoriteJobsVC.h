@@ -20,6 +20,7 @@
 @property (nonatomic, retain) IBOutlet UITableView *tableview;
 @property (nonatomic, retain) NSMutableArray *favoriteJobs;
 
+- (id)initWithNibNameHome:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil bHome: (BOOL) bHome;
 - (void) getFavoriteJobsList;
 
 - (IBAction) applyForJobButtonSelected: (id) sender;

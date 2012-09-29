@@ -16,6 +16,11 @@
 
 @synthesize m_bHome;
 @synthesize m_eventCell;
+@synthesize m_checkeventCell;
+@synthesize m_segCtrl;
+@synthesize m_searchBar;
+@synthesize m_labelUnavailable;
+@synthesize m_btnCheckin;
 @synthesize tableview, events;
 
 - (id)initWithNibNameHome:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil bHome: (BOOL) bHome {
@@ -72,19 +77,18 @@
     [self initDarkView];
     [self getEventsList];
 
-    UILabel *topLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, 300, 30)];
-    topLabel.textColor = [UIColor whiteColor];
-    topLabel.backgroundColor = [UIColor clearColor];
-    topLabel.font = [UIFont fontWithName: Font_TrebuchetMS_Bold size:15.0f];
-    topLabel.text = @"eRecruiting from Experience.com";
-    self.navigationItem.titleView = topLabel ;
-    [topLabel release];
+    [self.navigationController setNavigationBarHidden: YES];
     
 }
 
 - (void)viewDidUnload
 {
     [self setM_eventCell:nil];
+    [self setM_segCtrl:nil];
+    [self setM_checkeventCell:nil];
+    [self setM_searchBar:nil];
+    [self setM_labelUnavailable:nil];
+    [self setM_btnCheckin:nil];
     [super viewDidUnload];
     self.tableview = nil;
     self.events = nil;
@@ -96,14 +100,18 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
--(void) dealloc
+- (void) dealloc
 {
     [self.tableview release];
     [self.events release];
     [m_eventCell release];
+    [m_segCtrl release];
+    [m_checkeventCell release];
+    [m_searchBar release];
+    [m_labelUnavailable release];
+    [m_btnCheckin release];
     [super dealloc];
 }
-
 
 #pragma mark - TableView delegate methods
 
@@ -116,25 +124,60 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView
 		 cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+   
+    if (m_segCtrl.selectedSegmentIndex == 0) {
+        EventBO *eventBO = nil;
+        eventBO = [events objectAtIndex:indexPath.row];
+        
+        [[NSBundle mainBundle] loadNibNamed:@"EventListCell" owner:self options:nil];
+        
+        m_eventCell.m_labelName.text = eventBO.eventName;
+        
+        if ([eventBO.eventStartDate isEqualToString: eventBO.eventEndDate] == YES) {
+            m_eventCell.m_labelDate.text = [NSString stringWithFormat:@"%@, %@-%@",eventBO.eventStartDate, eventBO.eventStartTime, eventBO.eventEndTime];        
+        } else {
+            m_eventCell.m_labelDate.text = [NSString stringWithFormat:@"%@-%@",eventBO.eventStartDate, eventBO.eventEndDate];        
+        }
+        
+        return m_eventCell;
+        
+    }
     
     EventBO *eventBO = nil;
     eventBO = [events objectAtIndex:indexPath.row];
     
-    [[NSBundle mainBundle] loadNibNamed:@"EventListCell" owner:self options:nil];
+    [[NSBundle mainBundle] loadNibNamed:@"CheckEventListCell" owner:self options:nil];
     
-    m_eventCell.m_labelName.text = eventBO.eventName;
-    m_eventCell.m_btnCheckIn.tag = indexPath.row;
+    m_checkeventCell.m_labelTitle.text = eventBO.eventName;
+    m_checkeventCell.m_labelLocation.text = eventBO.eventlocation;
     
-    return m_eventCell;
+    if ([eventBO.eventStartDate isEqualToString: eventBO.eventEndDate] == YES) {
+        m_checkeventCell.m_labelDate.text = [NSString stringWithFormat:@"%@, %@-%@",eventBO.eventStartDate, eventBO.eventStartTime, eventBO.eventEndTime];        
+    } else {
+        m_checkeventCell.m_labelDate.text = [NSString stringWithFormat:@"%@-%@",eventBO.eventStartDate, eventBO.eventEndDate];        
+    }
+    
+    return m_checkeventCell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
- //   	[tableView deselectRowAtIndexPath:indexPath animated:NO];
+    if (m_segCtrl.selectedSegmentIndex == 0) {
+        EventDetailVC *eventDetailVC = [[EventDetailVC alloc] initWithNibName:@"EventDetailVC" bundle:nil];
+        eventDetailVC.eventBO = [self.events objectAtIndex:indexPath.row];
+        NSLog(@"tag %d", indexPath.row);
+        [self.navigationController pushViewController:eventDetailVC animated:YES];
+        
+        [eventDetailVC release];
+    }
     
 }
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 60;
+    if (m_segCtrl.selectedSegmentIndex == 0) {
+        return 60;
+    }
+    
+    return 77;
 }
 
 
@@ -207,5 +250,34 @@
     [eventDetailVC release];
     
 }
+
+- (IBAction)onSegValueChanged:(id)sender {
+    [tableview reloadData];
+}
+
+#pragma mark - SearchBar Delegate
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    [m_searchBar resignFirstResponder];
+    
+    NSString *searchKeyword = m_searchBar.text;
+    NSLog(@"%@", searchKeyword);
+    
+    /*
+    if (searchKeyword != nil || searchKeyword != (id)[NSNull null]) {
+        [[NetworkController singleton] getSearchedJobsFromServer:searchKeyword andCallBack:^(int result, NSMutableArray *jobs1){
+            if(result == REQUEST_SUCCEEDED){
+                self.jobs  = jobs1;
+                [self.tableview reloadData];
+            }else{
+                NSLog(@"Error");
+            }
+        }];
+        
+    }
+     */
+    
+}
+
 
 @end

@@ -12,6 +12,7 @@
 #import "FavoriteJobsVC.h"
 #import "EventsVC.h"
 #import "ProfileVC.h"
+#import "AppDelegate.h"
 
 @implementation MainScreen
 @synthesize name;
@@ -39,22 +40,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    
-   // UIImage *backButton = [[UIImage imageNamed:Back_Button_Up] 
-//                           resizableImageWithCapInsets:UIEdgeInsetsMake(0.0f, 12.0f, 0.0f, 12.0f)];
-//    [[UIBarButtonItem appearance] setFrame:CGRectMake(0, 50, 320, 44)];
- //   [self.navigationController.navigationBar setFrame:CGRectMake(0, 50, 320, 44)];
-//    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:backButton 
- //                                                     forState:UIControlStateNormal 
-//                                                    barMetrics:UIBarMetricsLandscapePhone];
+        
+    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    m_nHomeType = delegate.m_nHomeType;
     
     UIViewController *homeViewCtrl;
 
     if (m_nHomeType == 0) {
         homeViewCtrl = [[JobsVC alloc] initWithNibNameHome:@"JobsVC" bundle:nil bHome: YES];
     } else if (m_nHomeType == 1) {
-        homeViewCtrl = [[FavoriteJobsVC alloc] initWithNibName:@"FavoriteJobsVC" bundle:nil];        
+        homeViewCtrl = [[FavoriteJobsVC alloc] initWithNibNameHome:@"FavoriteJobsVC" bundle:nil bHome: YES];        
     } else if (m_nHomeType == 2) {
         homeViewCtrl = [[EventsVC alloc] initWithNibNameHome:@"EventsVC" bundle:nil bHome: YES];
     } else {
@@ -90,6 +85,8 @@
     bannerView.delegate = self;
 
     [self.view addSubview: bannerView];
+    
+    self.tabBarController.tabBar.delegate = self;
 }
 
 - (void)viewDidUnload
@@ -110,6 +107,8 @@
     [bannerView release];
 }
 
+
+
 #pragma mark - ADView Banner
 - (void)bannerViewDidLoadAd:(ADBannerView *)banner {
     [banner setFrame:CGRectMake(0, 20, 320, 50)];
@@ -117,6 +116,23 @@
 
 - (void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error {
     NSLog(@"error!!");
+}
+
+#pragma mark - TabBar Delegate
+- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item
+{
+    if([item.title isEqualToString:@"Home"])
+    {
+                
+        
+        AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+        UIViewController *homeViewCtrl = [[HomeVC alloc] initWithNibName:@"HomeVC" 
+                                                                  bundle:nil];
+
+        
+        delegate.window.rootViewController = homeViewCtrl;
+
+    }
 }
 
 @end

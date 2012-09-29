@@ -17,6 +17,24 @@
 @synthesize m_favJobListCell;
 @synthesize tableview, favoriteJobs;
 
+- (id)initWithNibNameHome:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil bHome: (BOOL) bHome {
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        m_bHome = bHome;
+        
+        UITabBarItem * tabtitle;
+       
+        tabtitle = [[UITabBarItem alloc] initWithTitle: @"Home" image: [UIImage imageNamed:Home_tab_Image] tag: 0];
+        
+        [self setTabBarItem: tabtitle];
+        
+        [self.tabBarController setHidesBottomBarWhenPushed: NO];
+        [tabtitle release];
+        
+    }
+    return self;
+}
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -30,8 +48,6 @@
         [self setTabBarItem: tabtitle];
         
         [self.tabBarController setHidesBottomBarWhenPushed: NO];
-            
-        [self setTabBarItem: tabtitle];
         [tabtitle release];
 
         
@@ -53,12 +69,8 @@
 {
     [super viewDidLoad];
     [self getFavoriteJobsList];
-    UILabel *topLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, 300, 30)];
-    topLabel.textColor = [UIColor whiteColor];
-    topLabel.backgroundColor = [UIColor clearColor];
-    topLabel.font = [UIFont fontWithName:Font_TrebuchetMS_Bold size:17.0f];
-    topLabel.text = Navigation_Bar_Title_Text;
-    self.navigationItem.titleView = topLabel ;
+    
+    [self.navigationController setNavigationBarHidden: YES];
 }
 
 - (void)viewDidUnload

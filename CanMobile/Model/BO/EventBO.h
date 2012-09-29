@@ -21,6 +21,8 @@
 @property (nonatomic, retain) NSString *eventStartDate;
 @property (nonatomic, retain) NSString *eventEndDate;
 @property (nonatomic, retain) NSString *rsvpDate;
+@property (nonatomic, retain) NSString *eventStartTime;
+@property (nonatomic, retain) NSString *eventEndTime;
 @property (nonatomic, retain) NSString *eventUrl;
 
 -(id) init;

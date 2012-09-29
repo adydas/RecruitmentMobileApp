@@ -124,9 +124,10 @@
 {    
     NSLog(@"searchJobs button pressed");
     
-    MainScreen *mainScreen = [[MainScreen alloc] initWithNibName:@"MainScreen" bundle:nil];
-    mainScreen.m_nHomeType = 0;
     AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    delegate.m_nHomeType = 0;
+    MainScreen *mainScreen = [[MainScreen alloc] initWithNibName:@"MainScreen" bundle:nil];
+
     delegate.window.rootViewController = mainScreen;
 }
 
@@ -134,9 +135,10 @@
 {
 
     NSLog(@"favoriteJobs button pressed");
-    MainScreen *mainScreen = [[MainScreen alloc] initWithNibName:@"MainScreen" bundle:nil];
-    mainScreen.m_nHomeType = 1;
     AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    delegate.m_nHomeType = 1;
+    MainScreen *mainScreen = [[MainScreen alloc] initWithNibName:@"MainScreen" bundle:nil];
+
     delegate.window.rootViewController = mainScreen;
     
     
@@ -145,18 +147,19 @@
 - (IBAction)upcomingEventsButtonpressed:(id)sender
 {
     NSLog(@"upcomingEvents button pressed");
-    MainScreen *mainScreen = [[MainScreen alloc] initWithNibName:@"MainScreen" bundle:nil];
-    mainScreen.m_nHomeType = 2;
     AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    delegate.m_nHomeType = 2;
+    MainScreen *mainScreen = [[MainScreen alloc] initWithNibName:@"MainScreen" bundle:nil];
     delegate.window.rootViewController = mainScreen;
 }
 
 - (IBAction)myProfileButtonpressed:(id)sender
 {
     NSLog(@"myProfile button pressed");
-    MainScreen *mainScreen = [[MainScreen alloc] initWithNibName:@"MainScreen" bundle:nil];
-    mainScreen.m_nHomeType = 3;
     AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    delegate.m_nHomeType = 3;
+    MainScreen *mainScreen = [[MainScreen alloc] initWithNibName:@"MainScreen" bundle:nil];
+
     delegate.window.rootViewController = mainScreen;
 }
 

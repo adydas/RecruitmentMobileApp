@@ -68,7 +68,7 @@
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<object class="NSCustomResource" key="IBUIImage">
 									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">li_bg.png</string>
+									<string key="NSResourceName">results_bg.png</string>
 								</object>
 							</object>
 							<object class="IBUILabel" id="441564573">
@@ -143,7 +143,7 @@
 							<object class="IBUIButton" id="169892193">
 								<reference key="NSNextResponder" ref="690069490"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{241, 20}, {20, 20}}</string>
+								<string key="NSFrame">{{243, 15}, {20, 25}}</string>
 								<reference key="NSSuperview" ref="690069490"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="170920476"/>
@@ -163,7 +163,7 @@
 								</object>
 								<object class="NSCustomResource" key="IBUINormalImage">
 									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">edit_icon_job.png</string>
+									<string key="NSResourceName">edit_icon.png</string>
 								</object>
 								<object class="IBUIFontDescription" key="IBUIFontDescription" id="795859194">
 									<int key="type">2</int>
@@ -178,7 +178,7 @@
 							<object class="IBUIButton" id="170920476">
 								<reference key="NSNextResponder" ref="690069490"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{267, 19}, {20, 20}}</string>
+								<string key="NSFrame">{{269, 18}, {20, 20}}</string>
 								<reference key="NSSuperview" ref="690069490"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView"/>
@@ -456,9 +456,9 @@
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
-			<string key="edit_icon_job.png">{16, 16}</string>
+			<string key="edit_icon.png">{24, 30}</string>
 			<string key="heart_icon.png">{20, 20}</string>
-			<string key="li_bg.png">{1, 185}</string>
+			<string key="results_bg.png">{610, 110}</string>
 		</dictionary>
 		<string key="IBCocoaTouchPluginVersion">1181</string>
 	</data>

@@ -58,6 +58,9 @@ typedef enum responseTypes
 #define Event_Location                      @"location"
 #define Event_Url                           @"event_url"
 #define Event_Start_Date                    @"start_date"
+#define Event_End_Date                      @"end_date"
+#define Event_Start_Time                    @"start_time"
+#define Event_End_Time                      @"end_time"
 
 #define Base_Url                            @"http://services.experience.com"
 #define Base_Url_QA                         @"http://services.qa-experience.com"

@@ -13,13 +13,14 @@
 
 
 @property (nonatomic, retain) IBOutlet UILabel *eventNameLabel;
+@property (retain, nonatomic) IBOutlet UILabel *eventDateLabel;
 @property (nonatomic, retain) IBOutlet UILabel *descriptionLabel;
 @property (nonatomic, retain) IBOutlet UILabel *locationLabel;
 @property (nonatomic, retain) IBOutlet UILabel *dateLabel;
 @property (nonatomic, retain) IBOutlet UILabel *timeLabel;
 @property (nonatomic, retain) EventBO *eventBO;
 
-- (IBAction)editButtonPressed:(id)sender;
-- (IBAction)favoriteButtonPressed:(id)sender;
+- (IBAction)onClickNavBackBtn:(id)sender;
+
 
 @end

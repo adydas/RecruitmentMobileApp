@@ -69,7 +69,7 @@
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<object class="NSCustomResource" key="IBUIImage">
 									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">li_bg.png</string>
+									<string key="NSResourceName">results_bg.png</string>
 								</object>
 							</object>
 							<object class="IBUILabel" id="282144041">
@@ -144,7 +144,7 @@
 							<object class="IBUIButton" id="99657057">
 								<reference key="NSNextResponder" ref="901702351"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{246, 18}, {20, 20}}</string>
+								<string key="NSFrame">{{240, 13}, {20, 25}}</string>
 								<reference key="NSSuperview" ref="901702351"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="681127799"/>
@@ -164,7 +164,7 @@
 								</object>
 								<object class="NSCustomResource" key="IBUINormalImage">
 									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">edit_icon_job.png</string>
+									<string key="NSResourceName">edit_icon.png</string>
 								</object>
 								<object class="IBUIFontDescription" key="IBUIFontDescription" id="191557715">
 									<int key="type">2</int>
@@ -179,7 +179,7 @@
 							<object class="IBUIButton" id="681127799">
 								<reference key="NSNextResponder" ref="901702351"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{268, 17}, {20, 20}}</string>
+								<string key="NSFrame">{{265, 12}, {27, 25}}</string>
 								<reference key="NSSuperview" ref="901702351"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="1017087051"/>
@@ -194,9 +194,13 @@
 									<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
 								</object>
 								<reference key="IBUINormalTitleShadowColor" ref="697972458"/>
+								<object class="NSCustomResource" key="IBUISelectedImage">
+									<string key="NSClassName">NSImage</string>
+									<string key="NSResourceName">icon_star_selected.png</string>
+								</object>
 								<object class="NSCustomResource" key="IBUINormalBackgroundImage">
 									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">ratestar.png</string>
+									<string key="NSResourceName">icon_star.png</string>
 								</object>
 								<reference key="IBUIFontDescription" ref="191557715"/>
 								<reference key="IBUIFont" ref="11234643"/>
@@ -495,6 +499,7 @@
 				<string key="34.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="7.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="8.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<real value="2" key="8.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
@@ -562,10 +567,11 @@
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
 			<string key="btn_back.png">{51, 30}</string>
-			<string key="edit_icon_job.png">{16, 16}</string>
-			<string key="li_bg.png">{1, 185}</string>
+			<string key="edit_icon.png">{24, 30}</string>
+			<string key="icon_star.png">{33, 31}</string>
+			<string key="icon_star_selected.png">{33, 31}</string>
 			<string key="nav.png">{320, 44}</string>
-			<string key="ratestar.png">{37, 36}</string>
+			<string key="results_bg.png">{610, 110}</string>
 		</dictionary>
 		<string key="IBCocoaTouchPluginVersion">1181</string>
 	</data>
