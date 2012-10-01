@@ -33,6 +33,6 @@ typedef void (^ConditionCallbackWithArg)(int, id);
 
 
 //-(NSMutableArray*) getQRCodeFromResponse: (NSDictionary*)json;
--(NSMutableArray*) getJobsListFromResponse: (NSDictionary*)json;
--(NSMutableArray*) getEventsListFromResponse: (NSMutableArray*)json;
+- (NSMutableArray*) getJobsListFromResponse: (NSDictionary*)json;
+- (NSMutableArray*) getEventsListFromResponse: (NSMutableArray*)json;
 @end
