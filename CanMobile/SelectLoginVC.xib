@@ -63,7 +63,6 @@
 						<string key="NSFrame">{{0, 416}, {320, 44}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:196</string>
 						<object class="NSColor" key="IBUIBackgroundColor" id="869354272">
 							<int key="NSColorSpace">1</int>
@@ -666,7 +665,7 @@
 			<string key="btn_login.png">{112, 30}</string>
 			<string key="combobox.png">{261, 31}</string>
 			<string key="combobox_selected.png">{261, 31}</string>
-			<string key="exp_logo.png">{156, 27}</string>
+			<string key="exp_logo.png">{186, 31}</string>
 		</dictionary>
 		<string key="IBCocoaTouchPluginVersion">1181</string>
 	</data>
