@@ -79,6 +79,53 @@
     [super dealloc];
 }
 
+#pragma mark - General Functions
+
+
+- (void) performLogin {
+    
+	[[NetworkController singleton] loginWithServer:^(int result, NSString *usernameString ) {
+        if (result == NO_INTERNET) {
+            [SUtils showAlertMsg:No_Internet_Connection_Message title:No_Internet_Connection_Title];
+        }
+        else if (result == REQUEST_FAILED)
+        {
+            [SUtils showAlertMsg:Login_Request_Failiure_Message title:Request_Failiure_Title];
+        }
+        else if (result == ERROR_OCCURED)
+        {
+            [SUtils showAlertMsg:Request_Error_Message title:Request_Error_Title];
+        }
+        else
+        {
+            [[NSUserDefaults standardUserDefaults] setObject:usernameString forKey:User_First_And_Last_Name];
+            
+            UIViewController *homeViewCtrl = [[HomeVC alloc] initWithNibName:@"HomeVC" 
+                                                                      bundle:nil];
+            [self.navigationController pushViewController: homeViewCtrl animated: YES];
+            [homeViewCtrl release];
+            /*
+             MainScreen *mainScreen = [[MainScreen alloc] initWithNibName:@"MainScreen" bundle:nil];
+             AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+             delegate.window.rootViewController = mainScreen;
+             */
+            
+            [self performSelectorOnMainThread:@selector(removeOverLay:) withObject:usernameString waitUntilDone:NO];
+        }
+        
+    }];
+    
+}
+
+- (void)removeOverLay:(NSString*) results{    
+    
+    [activityView stopAnimating];
+	[darkView removeFromSuperview];
+    
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+
 #pragma mark - IBActions
 
 - (IBAction)loginButtonPressed : (id)sender
@@ -113,55 +160,13 @@
     
 }
 
-- (void) performLogin {
-
-	[[NetworkController singleton] loginWithServer:^(int result, NSString *usernameString ) {
-        if (result == NO_INTERNET) {
-            [SUtils showAlertMsg:No_Internet_Connection_Message title:No_Internet_Connection_Title];
-        }
-        else if (result == REQUEST_FAILED)
-        {
-            [SUtils showAlertMsg:Login_Request_Failiure_Message title:Request_Failiure_Title];
-        }
-        else if (result == ERROR_OCCURED)
-        {
-            [SUtils showAlertMsg:Request_Error_Message title:Request_Error_Title];
-        }
-        else
-        {
-            [[NSUserDefaults standardUserDefaults] setObject:usernameString forKey:User_First_And_Last_Name];
-            
-            UIViewController *homeViewCtrl = [[HomeVC alloc] initWithNibName:@"HomeVC" 
-                                                                         bundle:nil];
-            [self.navigationController pushViewController: homeViewCtrl animated: YES];
-            [homeViewCtrl release];
-            /*
-            MainScreen *mainScreen = [[MainScreen alloc] initWithNibName:@"MainScreen" bundle:nil];
-            AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-            delegate.window.rootViewController = mainScreen;
-            */
-            
-            [self performSelectorOnMainThread:@selector(removeOverLay:) withObject:usernameString waitUntilDone:NO];
-        }
-
-    }];
-	    
-}
-
-- (void)removeOverLay:(NSString*) results{    
-    
-    [activityView stopAnimating];
-	[darkView removeFromSuperview];
-
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
 - (IBAction)refreshButtonPressed:(id)sender
 {
     NSLog(@"Refresh button pressed");
 }
 
 
+#pragma mark - TextField Delegate
 - (BOOL) textFieldShouldReturn : (UITextField *) textField {
     [textField resignFirstResponder];
     return YES;

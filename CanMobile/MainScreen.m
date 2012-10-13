@@ -108,7 +108,6 @@
 }
 
 
-
 #pragma mark - ADView Banner
 - (void)bannerViewDidLoadAd:(ADBannerView *)banner {
     [banner setFrame:CGRectMake(0, 20, 320, 50)];
@@ -121,10 +120,8 @@
 #pragma mark - TabBar Delegate
 - (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item
 {
-    if([item.title isEqualToString:@"Home"])
+    if ([item.title isEqualToString:@"Home"])
     {
-                
-        
         AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
         UIViewController *homeViewCtrl = [[HomeVC alloc] initWithNibName:@"HomeVC" 
                                                                   bundle:nil];

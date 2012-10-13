@@ -8,6 +8,8 @@
 
 #import "SelectLoginVC.h"
 #import "LoginVC.h"
+#import "NetworkController.h"
+#import "SUtils.h"
 
 @interface SelectLoginVC ()
 
@@ -16,6 +18,8 @@
 @implementation SelectLoginVC
 @synthesize m_viewPicker;
 @synthesize m_pickerView;
+@synthesize m_states;
+@synthesize m_collages;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -29,6 +33,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    m_states = [[NSMutableArray alloc] init];
+    m_collages = [[NSMutableArray alloc] init];
+    
+    [self getStateList];
+    
+    
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -49,14 +60,70 @@
 - (void)dealloc {
     [m_viewPicker release];
     [m_pickerView release];
+    [m_states release];
+    [m_collages release];
     [super dealloc];
 }
 
+#pragma mark - Logic functions
 
-////////////////////////////////////////////////////////////////////////////////////
-//// Picker View Delegate
-////////////////////////////////////////////////////////////////////////////////////
+- (void) getStateList
+{
+//    [self.view addSubview:darkView];
+//    [activityView startAnimating];
+    [[NetworkController singleton] getStatesFromServer:^(int result, NSMutableArray *states)
+     {
+         if (result == NO_INTERNET)
+         {
+             [SUtils showAlertMsg:No_Internet_Connection_Message title:No_Internet_Connection_Title];
+         }
+         else if (result == REQUEST_FAILED)
+         {
+             NSLog(@"Error");
+             [SUtils showAlertMsg:Request_Failiure_Message title:Request_Failiure_Title];
+         }
+         else if (result == ERROR_OCCURED)
+         {
+             [SUtils showAlertMsg:Request_Error_Message title:Request_Error_Title];
+         }        
+         else if (result == REQUEST_SUCCEEDED){
+             self.m_states  = states;
+             
+         }
+  //       [self performSelectorOnMainThread:@selector(removeOverLay:) withObject:jobs1 waitUntilDone:NO];
+     }];
+}
 
+- (void) getCollageList
+{
+    //    [self.view addSubview:darkView];
+    //    [activityView startAnimating];
+    [[NetworkController singleton] getCollagesFromServer:^(int result, NSMutableArray *collages)
+     {
+         if (result == NO_INTERNET)
+         {
+             [SUtils showAlertMsg:No_Internet_Connection_Message title:No_Internet_Connection_Title];
+         }
+         else if (result == REQUEST_FAILED)
+         {
+             NSLog(@"Error");
+             [SUtils showAlertMsg:Request_Failiure_Message title:Request_Failiure_Title];
+         }
+         else if (result == ERROR_OCCURED)
+         {
+             [SUtils showAlertMsg:Request_Error_Message title:Request_Error_Title];
+         }        
+         else if (result == REQUEST_SUCCEEDED){
+             self.m_collages  = collages;
+             
+         }
+         //       [self performSelectorOnMainThread:@selector(removeOverLay:) withObject:jobs1 waitUntilDone:NO];
+     }];
+}
+
+
+
+#pragma mark - Picker View Delegate
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
     if (pickerView == m_pickerView)
     {
@@ -84,6 +151,7 @@
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+    
 }
 
 /**

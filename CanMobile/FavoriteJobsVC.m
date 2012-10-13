@@ -87,6 +87,10 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+- (void)dealloc {
+    [m_favJobListCell release];
+    [super dealloc];
+}
 
 #pragma mark - TableView delegate methods
 
@@ -126,27 +130,7 @@
     return 60;
 }
 
-#pragma mark - IBActions
-
-- (IBAction) detailDiscolosureIndicatorSelected: (id) sender
-{
-    JobDetailVC *jobDetailVC = [[JobDetailVC alloc] initWithNibName:@"JobDetailVC" bundle:nil];
-    jobDetailVC.jobBO = [self.favoriteJobs objectAtIndex:[sender tag]];
-    NSLog(@"tag %d",[ sender tag]);
-    [self.navigationController pushViewController:jobDetailVC animated:YES];
-    
-    [jobDetailVC release];
-}
-- (IBAction) applyForJobButtonSelected: (id) sender
-{
-    JobApplyVC *jobApplyVC = [[JobApplyVC alloc] initWithNibName:@"JobApplyVC" bundle:nil];
-    JobBO *jobBO = [self.favoriteJobs objectAtIndex:[sender tag]];
-    jobApplyVC.jobBO = jobBO;
-    [self.navigationController pushViewController:jobApplyVC animated:YES];
-    
-    [jobApplyVC release];
-}
-
+#pragma mark - Member Functions
 - (void) getFavoriteJobsList
 {
     [self.view addSubview:darkView];
@@ -180,14 +164,14 @@
             [alert release];
             
         }        
-
+        
         else if(result == REQUEST_SUCCEEDED){
             self.favoriteJobs  = jobs;
             [self.tableview reloadData];
         }
         [self performSelectorOnMainThread:@selector(removeOverLay:) withObject:jobs waitUntilDone:NO];
     }];
-
+    
 }
 
 - (void)removeOverLay:(NSString*) results{    
@@ -198,8 +182,26 @@
     //[self.navigationController popViewControllerAnimated:YES];
 }
 
-- (void)dealloc {
-    [m_favJobListCell release];
-    [super dealloc];
+#pragma mark - IBActions
+
+- (IBAction) detailDiscolosureIndicatorSelected: (id) sender
+{
+    JobDetailVC *jobDetailVC = [[JobDetailVC alloc] initWithNibName:@"JobDetailVC" bundle:nil];
+    jobDetailVC.jobBO = [self.favoriteJobs objectAtIndex:[sender tag]];
+    NSLog(@"tag %d",[ sender tag]);
+    [self.navigationController pushViewController:jobDetailVC animated:YES];
+    
+    [jobDetailVC release];
 }
+
+- (IBAction) applyForJobButtonSelected: (id) sender
+{
+    JobApplyVC *jobApplyVC = [[JobApplyVC alloc] initWithNibName:@"JobApplyVC" bundle:nil];
+    JobBO *jobBO = [self.favoriteJobs objectAtIndex:[sender tag]];
+    jobApplyVC.jobBO = jobBO;
+    [self.navigationController pushViewController:jobApplyVC animated:YES];
+    
+    [jobApplyVC release];
+}
+
 @end

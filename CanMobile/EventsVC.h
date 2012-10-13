@@ -17,7 +17,7 @@
     UILabel *titleLabel;
     UILabel *subTitleLabel;
     UIButton *detailDisclosureButton;
-     UIView *darkView;
+    UIView *darkView;
     JobsVC *jobsVCObj;
     
     IBOutlet UIActivityIndicatorView *activityView;
@@ -26,7 +26,7 @@
 @property (nonatomic) BOOL  m_bHome;
 
 @property (nonatomic, retain) IBOutlet UITableView *tableview;
-@property (nonatomic, retain)   NSMutableArray *events;
+@property (nonatomic, retain) NSMutableArray *events;
 @property (retain, nonatomic) IBOutlet EventListCell *m_eventCell;
 @property (retain, nonatomic) IBOutlet CheckEventListCell *m_checkeventCell;
 @property (retain, nonatomic) IBOutlet UISegmentedControl *m_segCtrl;

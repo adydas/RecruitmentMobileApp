@@ -91,6 +91,8 @@
 		4F894D071616E36B00752229 /* CheckEventListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F894D061616E36B00752229 /* CheckEventListCell.xib */; };
 		4F894D411619E9BF00752229 /* blue_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F894D401619E9BF00752229 /* blue_btn.png */; };
 		4F89FB3115AEFDA300F503E1 /* top-bar-50%.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F89FB3015AEFDA300F503E1 /* top-bar-50%.png */; };
+		4F8C476216266FA40047497F /* StateBO.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8C476116266FA40047497F /* StateBO.m */; };
+		4F8C4765162674C20047497F /* CollageBO.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8C4764162674C10047497F /* CollageBO.m */; };
 		4F91EA541610F637002D5582 /* btn_back.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F91EA521610F637002D5582 /* btn_back.png */; };
 		4F91EA551610F637002D5582 /* btn_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F91EA531610F637002D5582 /* btn_back@2x.png */; };
 		4F9C611D15EFA54400EB6CA4 /* EventsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F9C611C15EFA54400EB6CA4 /* EventsVC.xib */; };
@@ -224,6 +226,10 @@
 		4F894D061616E36B00752229 /* CheckEventListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CheckEventListCell.xib; sourceTree = "<group>"; };
 		4F894D401619E9BF00752229 /* blue_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blue_btn.png; sourceTree = "<group>"; };
 		4F89FB3015AEFDA300F503E1 /* top-bar-50%.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "top-bar-50%.png"; sourceTree = "<group>"; };
+		4F8C476016266FA40047497F /* StateBO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StateBO.h; sourceTree = "<group>"; };
+		4F8C476116266FA40047497F /* StateBO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StateBO.m; sourceTree = "<group>"; };
+		4F8C4763162674C10047497F /* CollageBO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollageBO.h; sourceTree = "<group>"; };
+		4F8C4764162674C10047497F /* CollageBO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollageBO.m; sourceTree = "<group>"; };
 		4F91EA521610F637002D5582 /* btn_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_back.png; sourceTree = "<group>"; };
 		4F91EA531610F637002D5582 /* btn_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_back@2x.png"; sourceTree = "<group>"; };
 		4F9C611C15EFA54400EB6CA4 /* EventsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventsVC.xib; sourceTree = "<group>"; };
@@ -615,6 +621,10 @@
 		4F9C617215F0BBFB00EB6CA4 /* BO */ = {
 			isa = PBXGroup;
 			children = (
+				4F8C4763162674C10047497F /* CollageBO.h */,
+				4F8C4764162674C10047497F /* CollageBO.m */,
+				4F8C476016266FA40047497F /* StateBO.h */,
+				4F8C476116266FA40047497F /* StateBO.m */,
 				4F9C617315F0BBFB00EB6CA4 /* EventBO.h */,
 				4F9C617415F0BBFB00EB6CA4 /* EventBO.m */,
 				4F9C617515F0BBFB00EB6CA4 /* JobBO.h */,
@@ -805,6 +815,8 @@
 				4F3B475215FD7E6200E20F94 /* SelectLoginVC.m in Sources */,
 				4F3B4776160183AF00E20F94 /* EventListCell.m in Sources */,
 				4F894D031616E33E00752229 /* CheckEventListCell.m in Sources */,
+				4F8C476216266FA40047497F /* StateBO.m in Sources */,
+				4F8C4765162674C20047497F /* CollageBO.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

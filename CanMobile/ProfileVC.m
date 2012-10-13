@@ -97,28 +97,11 @@
             NSLog(@"Error");
         }
     }];
-
-//    self.username.text = @"beta@betauniversity.com";
-//    self.studentId.text = @"N/A";
-//    self.firstName.text = @"Ady";
-//    self.lastName.text = @"Daz";
-//    self.accountCreationDate.text = @"02/02/2010"; 
-
-//    qRCodeImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"image_01"]];
-//    qRCodeImageView.frame = CGRectMake(25, 133, 270, 200);
-//    [self.view addSubview:qRCodeImageView];
-//    [qRCodeImageView setHidden:YES];
-
 }
 
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-//    self.username = nil;
-//    self.studentId = nil;
-//    self.firstName = nil;
-//    self.lastName = nil;
-//    self.accountCreationDate = nil;
     self.accountInfoButton = nil;
 }
 
@@ -128,20 +111,15 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
--(void) dealloc 
+- (void) dealloc 
 {
-//    [self.username release];
-//    [self.studentId release];
-//    [self.firstName release];
-//    [self.lastName release];
-//    [self.accountCreationDate release];
     [self.accountInfoButton release];
     [super dealloc];
 }
 
 #pragma mark - IBActions
 
--(IBAction)accountInfoButtonPressed:(id)sender
+- (IBAction)accountInfoButtonPressed:(id)sender
 {
     if ([qRCodeImageView isHidden]) {
         

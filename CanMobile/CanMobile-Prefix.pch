@@ -62,14 +62,27 @@ typedef enum responseTypes
 #define Event_Start_Time                    @"start_time"
 #define Event_End_Time                      @"end_time"
 
+#define States_List_Key                     @"states"
+#define State_Id                            @"id"
+#define State_Name                          @"name"
+
+#define Collages_List_Key                   @"colleges"
+#define Collages_Id                         @"id"
+#define Collages_Name                       @"name"
+#define Collages_ShortName                  @"shortName"
+#define Collages_Type                       @"type"
+
 #define Base_Url                            @"http://services.experience.com"
 #define Base_Url_QA                         @"http://services.qa-experience.com"
 #define Active_Jobs_API_Url                 @"/services/ws/jobs"
 #define Search_Jobs_API_Url                 @"/services/ws/stu/jobs/search?q=%@"
 #define Active_Favorite_Jobs_API_Url        @"/services/ws/stu/favorite/jobs"
 #define Active_Events_API_Url               @"services/ws/events"
+#define CheckIn_Event_API_Url               @"/services/ws/stu/checkin/%@/%@"
 #define Login_API_Url                       @"/services/api/login?j_username=%@&j_password=%@"
 #define QR_Code_API_Url                     @"/services/ws/stu/qrcode"
+#define States_API_Url                      @"/services/ws/states/list"
+#define Collages_API_Url                    @"/services/ws/states/listColleges/"
 
 
 #pragma mark - Image Names Strings

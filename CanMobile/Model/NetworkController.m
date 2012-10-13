@@ -12,6 +12,8 @@
 #import "JobBO.h"
 #import "JobsVC.h"
 #import "EventBO.h"
+#import "StateBO.h"
+#import "CollageBO.h"
 #import "AFNetworkActivityIndicatorManager.h"
 
 
@@ -85,6 +87,8 @@ NetworkController *singleton;
     }];
 }
 
+
+
 /***Method Description***/
 //It hits the search jobs url, call a method with the response as parameter that returns jobs Array, it then sends a call back with a bool and the array. Incase of success bool is true and in case of failiure bool is false and array is nil 
 -(void)getSearchedJobsFromServer:(NSString*) searchKeyword andCallBack:(ConditionCallbackWithArg)callback
@@ -113,7 +117,6 @@ NetworkController *singleton;
         switch (status) {
             case AFNetworkReachabilityStatusNotReachable:
                 callback(NO_INTERNET, nil);
-                
                 break;
             default:
                 request = [httpClient requestWithMethod:@"GET" path:requestPath parameters:nil];
@@ -206,8 +209,7 @@ NetworkController *singleton;
     
 /***Method Description***/
 //It hits the active events url, call a method with the response as parameter that returns events Array, it then sends a call back with a bool and the array. Incase of success bool is true and in case of failiure bool is false and array is nil 
--(void)getEventsFromServer:(ConditionCallbackWithArg)callback
-{
+- (void)getEventsFromServer:(ConditionCallbackWithArg)callback {
     [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
     [[AFNetworkActivityIndicatorManager sharedManager] incrementActivityCount];
 
@@ -260,6 +262,66 @@ NetworkController *singleton;
         }
     }];
  
+}
+
+/***Method Description***/
+- (void)checkInEvents:(ConditionCallbackWithArg)callback eventID: (NSString *) strEventID
+
+{
+    [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
+    [[AFNetworkActivityIndicatorManager sharedManager] incrementActivityCount];
+    
+    __block NSMutableURLRequest *request;
+    __block AFJSONRequestOperation *operation;
+    
+    NSURL *url = [NSURL URLWithString:Base_Url];
+    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
+    
+    NSString *username = [[NSUserDefaults standardUserDefaults]
+                          stringForKey:User_Name_Key_For_User_Defaults];
+    NSString *password = [[NSUserDefaults standardUserDefaults]
+                          stringForKey:Password_Key_For_User_Defaults];
+    
+    NSString *requestPath = [NSString stringWithFormat:CheckIn_Event_API_Url, strEventID, @"11"];
+    
+    [httpClient setAuthorizationHeaderWithUsername:username 
+                                          password:password];
+    [httpClient setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        
+        switch (status) {
+            case AFNetworkReachabilityStatusNotReachable:
+                callback(NO_INTERNET, nil);
+                
+                break;
+            default:
+                request = [httpClient requestWithMethod:@"GET" path:requestPath parameters:nil];
+                
+                operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+                    
+                    [[AFNetworkActivityIndicatorManager sharedManager] decrementActivityCount];
+                   // NSMutableArray *arr = [self getEventsListFromResponse:JSON];
+                    callback (REQUEST_SUCCEEDED, nil);
+                    
+                } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+                    [[AFNetworkActivityIndicatorManager sharedManager] decrementActivityCount];
+                    if (operation.response.statusCode == 404 || operation.response.statusCode == 500) {
+                        callback (ERROR_OCCURED, nil);
+                    }
+                    else
+                    {
+                        callback (REQUEST_FAILED, nil);
+                    }
+                    
+                    NSLog(@"Request Failed with Error: %@, %@", error, error.userInfo);
+                }];
+                
+                [httpClient enqueueHTTPRequestOperation:operation];
+                [httpClient release];
+                
+                break;
+        }
+    }];
+    
 }
 
 /***Method Description***/
@@ -440,6 +502,114 @@ NetworkController *singleton;
 }
 
 /***Method Description***/
+//It hits the active jobs url, call a method with the response as parameter that returns jobs Array, it then sends a call back with a bool and the array. Incase of success bool is true and in case of failiure bool is false and array is nil 
+- (void) getStatesFromServer : (ConditionCallbackWithArg) callback
+{
+    __block NSMutableURLRequest *request;
+    __block AFJSONRequestOperation *operation;
+    
+    [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
+    [[AFNetworkActivityIndicatorManager sharedManager] incrementActivityCount];
+    
+    NSURL *url = [NSURL URLWithString:Base_Url];
+    
+    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
+    
+    NSString *username = [[NSUserDefaults standardUserDefaults]
+                          stringForKey:User_Name_Key_For_User_Defaults];
+    NSString *password = [[NSUserDefaults standardUserDefaults]
+                          stringForKey:Password_Key_For_User_Defaults];
+    
+    [httpClient setAuthorizationHeaderWithUsername:username 
+                                          password:password];
+    [httpClient setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        
+        switch (status) {
+            case AFNetworkReachabilityStatusNotReachable:
+                callback(NO_INTERNET, nil);
+                break;
+            default:
+                request = [httpClient requestWithMethod:@"GET" path:States_API_Url parameters:nil];
+                
+                operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+                    
+                    [[AFNetworkActivityIndicatorManager sharedManager] decrementActivityCount];
+                    NSMutableArray *arr = [self getStatesListFromResponse:JSON];
+                    callback (REQUEST_SUCCEEDED, arr);
+                    
+                } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+                    [[AFNetworkActivityIndicatorManager sharedManager] decrementActivityCount];
+                    if (operation.response.statusCode == 404 || operation.response.statusCode == 500) {
+                        callback (ERROR_OCCURED, nil);
+                    }
+                    else
+                    {
+                        callback (REQUEST_FAILED, nil);
+                    }
+                    
+                    NSLog(@"Request Failed with Error: %@, %@", error, error.userInfo);
+                }];
+                [httpClient enqueueHTTPRequestOperation:operation];
+                [httpClient release];
+                break;
+        }
+    }];
+}
+
+- (void) getCollagesFromServer : (ConditionCallbackWithArg) callback {
+    __block NSMutableURLRequest *request;
+    __block AFJSONRequestOperation *operation;
+    
+    [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
+    [[AFNetworkActivityIndicatorManager sharedManager] incrementActivityCount];
+    
+    NSURL *url = [NSURL URLWithString:Base_Url];
+    
+    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
+    
+    NSString *username = [[NSUserDefaults standardUserDefaults]
+                          stringForKey:User_Name_Key_For_User_Defaults];
+    NSString *password = [[NSUserDefaults standardUserDefaults]
+                          stringForKey:Password_Key_For_User_Defaults];
+    
+    [httpClient setAuthorizationHeaderWithUsername:username 
+                                          password:password];
+    [httpClient setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        
+        switch (status) {
+            case AFNetworkReachabilityStatusNotReachable:
+                callback(NO_INTERNET, nil);
+                break;
+            default:
+                request = [httpClient requestWithMethod:@"GET" path:Collages_API_Url parameters:nil];
+                
+                operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+                    
+                    [[AFNetworkActivityIndicatorManager sharedManager] decrementActivityCount];
+                    NSMutableArray *arr = [self getCollagesListFromResponse:JSON];
+                    callback (REQUEST_SUCCEEDED, arr);
+                    
+                } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+                    [[AFNetworkActivityIndicatorManager sharedManager] decrementActivityCount];
+                    if (operation.response.statusCode == 404 || operation.response.statusCode == 500) {
+                        callback (ERROR_OCCURED, nil);
+                    }
+                    else
+                    {
+                        callback (REQUEST_FAILED, nil);
+                    }
+                    
+                    NSLog(@"Request Failed with Error: %@, %@", error, error.userInfo);
+                }];
+                [httpClient enqueueHTTPRequestOperation:operation];
+                [httpClient release];
+                break;
+        }
+    }];    
+}
+
+
+/***Method Description***/
 //It takes NSDictionary, extracts values from its keys and returns array of jobs  
 -(NSMutableArray*) getJobsListFromResponse: (NSDictionary*)json
 
@@ -459,6 +629,8 @@ NetworkController *singleton;
         jobBO.jobApplyUrl = [objDic valueForKey: Job_Apply_Url];
         
         [jobsArray addObject:jobBO];
+        
+        [jobBO release];
 }
     
     return jobsArray;
@@ -511,11 +683,66 @@ NetworkController *singleton;
         }
         
         [eventsArray addObject:eventBO];
+        
+        [eventBO release];
     }
     
     return eventsArray;
 
 }
+
+/***Method Description***/
+//It takes NSDictionary, extracts values from its keys and returns array of jobs  
+- (NSMutableArray*) getStatesListFromResponse: (NSDictionary*)json
+{ 
+    NSMutableArray *statesArray = [NSMutableArray array];
+    NSLog(@"%@", NSStringFromClass([json class]));
+    
+    NSArray *arr = [json valueForKey:States_List_Key];
+    NSLog(@"%d", [arr count]);
+    for (int i = 0; i < [arr count]; i++) {
+        
+        NSDictionary *objDic     = [arr objectAtIndex:i];
+        
+        StateBO *stateBO         = [[StateBO alloc] init];
+        
+        stateBO.stateId          = [objDic  valueForKey:State_Id];
+        stateBO.stateName        = [objDic valueForKey:State_Name];
+        
+        [statesArray addObject:stateBO];
+        
+        [stateBO release];
+    }
+    
+    return statesArray;
+}
+
+- (NSMutableArray*) getCollagesListFromResponse: (NSDictionary*)json
+{ 
+    NSMutableArray *collagesArray = [NSMutableArray array];
+    NSLog(@"%@", NSStringFromClass([json class]));
+    
+    NSArray *arr = [json valueForKey:Collages_List_Key];
+    NSLog(@"%d", [arr count]);
+    for (int i = 0; i < [arr count]; i++) {
+        
+        NSDictionary *objDic     = [arr objectAtIndex:i];
+        
+        CollageBO *collageBO         = [[CollageBO alloc] init];
+        
+        collageBO.collageId          = [objDic  valueForKey:Collages_Id];
+        collageBO.collageName        = [objDic valueForKey:Collages_Name];
+        collageBO.collageShortName   = [objDic valueForKey:Collages_ShortName];
+        collageBO.collageType        = [objDic valueForKey:Collages_Type];
+        
+        [collagesArray addObject:collageBO];
+        
+        [collageBO release];
+    }
+    
+    return collagesArray;
+}
+
 
 //-(NSMutableArray*) getQRCodeFromResponse: (NSDictionary*)json
 //{

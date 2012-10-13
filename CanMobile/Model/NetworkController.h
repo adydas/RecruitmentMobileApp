@@ -24,10 +24,12 @@ typedef void (^ConditionCallbackWithArg)(int, id);
 - (void) getSearchedJobsFromServer:(NSString*) searchKeyword andCallBack:(ConditionCallbackWithArg)callback;
 - (void) getFavoriteJobsFromServer:(ConditionCallbackWithArg)callback;
 - (void) getEventsFromServer:(ConditionCallbackWithArg)callback;
+- (void) checkInEvents:(ConditionCallbackWithArg)callback eventID: (NSString *) strEventID;
 - (void) getQRCodeFromServer:(ConditionCallbackWithArg)callback;
 - (void) getFirstNameAndLastNameFromServer:(ConditionCallbackWithArg)callback;
 - (void) loginWithServer:(ConditionCallbackWithArg)callback;
-
+- (void) getStatesFromServer : (ConditionCallbackWithArg) callback;
+- (void) getCollagesFromServer : (ConditionCallbackWithArg) callback;
 
 //-(void)getJobDetailsFromServer:(NSString*)jobId: (ConditionCallbackWithArg)callback;
 
@@ -35,4 +37,6 @@ typedef void (^ConditionCallbackWithArg)(int, id);
 //-(NSMutableArray*) getQRCodeFromResponse: (NSDictionary*)json;
 - (NSMutableArray*) getJobsListFromResponse: (NSDictionary*)json;
 - (NSMutableArray*) getEventsListFromResponse: (NSMutableArray*)json;
+- (NSMutableArray*) getStatesListFromResponse: (NSDictionary*)json;
+- (NSMutableArray*) getCollagesListFromResponse: (NSDictionary*)json;
 @end

@@ -243,7 +243,6 @@
 
 - (IBAction) detailDiscolosureIndicatorSelected: (id) sender
 {
-    
     EventDetailVC *eventDetailVC = [[EventDetailVC alloc] initWithNibName:@"EventDetailVC" bundle:nil];
     eventDetailVC.eventBO = [events objectAtIndex:[sender tag]];
     [self.navigationController pushViewController:eventDetailVC animated:YES];

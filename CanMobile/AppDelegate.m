@@ -85,7 +85,7 @@
      */
 }
 
--(void)initDarkView{
+- (void)initDarkView{
     darkView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 480, 320)];
     darkView.backgroundColor = [UIColor darkGrayColor];
     
@@ -98,11 +98,13 @@
     [myIndicator release];
     
 }
--(void)addDarkView{
+
+- (void)addDarkView{
     [self.viewController.view addSubview:darkView];
     
 }
--(void)removeDarkView{
+
+- (void)removeDarkView{
     [darkView removeFromSuperview];
     
 }

@@ -21,23 +21,6 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        /*
-
-        UIImage *logoImage = [UIImage imageNamed:Experience_Logo];
-        UIImageView *logoImageView = [[UIImageView alloc] initWithImage:logoImage];
-        logoImageView.frame = CGRectMake(160, 0, 156, 27);
-        self.navigationItem.titleView = logoImageView ;
-        
-        UIButton *customView = [[UIButton alloc] initWithFrame:CGRectMake(210, 0, 112, 25)];
-        [customView setBackgroundImage:[UIImage imageNamed:Logout_Button_Up] forState:UIControlStateNormal];
-        [customView setBackgroundImage:[UIImage imageNamed:Logout_Button_Pressed] forState:UIControlStateSelected];
-
-        [customView addTarget:self action:@selector(logoutButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-        
-        logoutButton = [[UIBarButtonItem alloc] initWithCustomView:customView];
-        
-        self.navigationItem.rightBarButtonItem = logoutButton;
-         */
     }
     return self;
 }

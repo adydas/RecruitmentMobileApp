@@ -249,7 +249,7 @@
 						<array class="NSMutableArray" key="NSSubviews">
 							<object class="IBUIToolbar" id="319877054">
 								<reference key="NSNextResponder" ref="435626660"/>
-								<int key="NSvFlags">266</int>
+								<int key="NSvFlags">290</int>
 								<array class="NSMutableArray" key="NSSubviews">
 									<object class="IBUISegmentedControl" id="397778199">
 										<reference key="NSNextResponder" ref="319877054"/>
