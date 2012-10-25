@@ -120,6 +120,7 @@
 		4FFD67EC16151E080067FEEE /* icon_star_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FFD67EA16151E080067FEEE /* icon_star_selected.png */; };
 		4FFD67ED16151E080067FEEE /* icon_star.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FFD67EB16151E080067FEEE /* icon_star.png */; };
 		4FFD67EF161520440067FEEE /* results_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FFD67EE161520440067FEEE /* results_bg.png */; };
+		A927248516398E6D0025F077 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A927248416398E6D0025F077 /* Icon@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -274,6 +275,7 @@
 		4FFD67EA16151E080067FEEE /* icon_star_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_star_selected.png; sourceTree = "<group>"; };
 		4FFD67EB16151E080067FEEE /* icon_star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_star.png; sourceTree = "<group>"; };
 		4FFD67EE161520440067FEEE /* results_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = results_bg.png; path = Jobs/results_bg.png; sourceTree = "<group>"; };
+		A927248416398E6D0025F077 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "../../../../Desktop/Icon@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -499,6 +501,7 @@
 				4F91EA531610F637002D5582 /* btn_back@2x.png */,
 				4F0CD356160CC56A00A4A194 /* textfield_bg.png */,
 				4F0CD357160CC56A00A4A194 /* textfield_bg@2x.png */,
+				A927248416398E6D0025F077 /* Icon@2x.png */,
 				4F825FEE15F892E9003D34AD /* btn_black_pressed.png */,
 				4F825FEF15F892E9003D34AD /* btn_black_pressed@2x.png */,
 				4F845F7E15CFA19400F6B4BE /* exp_logo@2x.png */,
@@ -772,6 +775,7 @@
 				4FFD67EF161520440067FEEE /* results_bg.png in Resources */,
 				4F894D071616E36B00752229 /* CheckEventListCell.xib in Resources */,
 				4F894D411619E9BF00752229 /* blue_btn.png in Resources */,
+				A927248516398E6D0025F077 /* Icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
